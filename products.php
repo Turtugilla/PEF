@@ -8,8 +8,11 @@ include 'config.php';
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Grid Bootstrap">
+    <meta name="description" content="">
     <title>POLLITOS EN FUGA</title>
 
 
@@ -17,9 +20,11 @@ include 'config.php';
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/cubeportfolio.min.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
+
 
     <!-- icons -->
     <link rel="icon" href="images/ico/favicon.ico">
@@ -140,7 +145,7 @@ include 'config.php';
 
 
                                    echo '<div class="project-item">';
-                                   echo '<a href="images/products/'.$obj->product_img_name.'" class="image-link">';
+                                   echo '<a href="images/products/'.$obj->product_img_name.'" class="image-link" >';
                                    echo '<img class ="img-responsive" src="images/products/'.$obj->product_img_name.'"/>';
                                    echo '</a>';
                                    echo '</div>';
@@ -249,18 +254,14 @@ include 'config.php';
         </div>
     </div><!-- footer bottom -->
 </footer><!-- footer -->
-<script src="js/vendor/jquery.js"></script>
-<script src="js/vendor/modernizr.js"></script>
+
+<script src="js/modernizr.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/cubeportfolio.min.js"></script>
 <script src="js/magnific-popup.min.js"></script>
 <script src="js/jquery.backstretch.min.js"></script>
-
-<script>
-    $(document).foundation();
-</script>
 </body>
 </html>
 
