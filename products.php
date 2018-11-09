@@ -115,7 +115,7 @@ include 'config.php';
     <div class="container">
         <div class="section-title text-center">
             <div class="container">
-            
+
                 <h2>Productos</h2>
             </div>
         </div>
