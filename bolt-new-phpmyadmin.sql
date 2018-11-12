@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `city`, `pin`, `email`, `password`, `type`) VALUES
 (1, 'Pedro', 'Leon', 'Mexico', 'Monterrey', 123456, 'pedro@mail.com', 123456, 'admin'),
-(2, 'Alex', 'Acosta', 'Mexico', 'Monterrey', 123456, 'alex@mail.com', 123456, 'admin');
+(2, 'Alex', 'Acosta', 'Mexico', 'Monterrey', 123456, 'angel.ygtp@gmail.com', 123456, 'admin');
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

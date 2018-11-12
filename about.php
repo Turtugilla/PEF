@@ -112,8 +112,8 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <div class="breadcrumb-content container">
         <h1>Quiénes Somos</h1>
         <ol class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">About Us</li>
+            <li><a href="index.php">Regresar</a></li>
+            <li class="active">Acerca de </li>
         </ol>
     </div>
 </div><!-- breadcrumb-section -->
@@ -128,18 +128,15 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 <div class="about-us-section section-padding">
     <div class="container">
         <div class="section-title text-center">
-            <h1>What We Do</h1>
-            <h2>About Our Construction</h2>
+            <h1>¿Que Hacemos?</h1>
+            <h2>Nuestros Procesos</h2>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="about-section-content">
-                    <h2>About Construction</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a enim aliquam, condimentum nisl a, laoreet lectus. Aliquam convallis sed elit nec vehicula. Praesent gravida, massa sit amet ullamcorper fringilla, tortor nunc ultrices dui, in tristique leo leo sed massa.</p>
+                    <h2>Proceso Productivo</h2>
+                    <p>La producción debe entenderse como una cadena vertical e integrada, que consta de una serie de eslabones relacionados entre sí. En todos y cada uno de estos procesos aplicamos criterios orientados hacia la calidad y el máximo bienestar de las aves. De esta manera, producimos carne de pollo de forma sostenible, responsable y respetando al máximo nuestra filosofía de empresa, indiscutiblemente enfocada hacia la calidad y seguridad alimentaria.</p>
 
-                    <p>Quisque et lectus pulvinar, porttitor mi non, elementum dui. Morbi mi nisl, tincidunt sed venenatis eget, finibus eu mauris. Nullam nisi lacus, feugiat eget varius eget, pellentesque dictum odio. Sed sollicitudin viverra est, at aliquam metus ultrices id. Duis eu purus vel nisl commodo facilisis vitae ut lectus.</p>
-
-                    <p>Sed elementum dapibus tellus, a dictum metus interdum ac. Nullam condimentum, dui volutpat fringilla molestie, libero tortor ultrices lorem, at tempus diam purus non velit. Aliquam vel nulla eleifend, consequat elit id, tristique massa. Fusce dolor velit, blandit ac erat ac, vestibulum ornare diam.</p>
                 </div>
             </div>
             <div class="col-md-6">
