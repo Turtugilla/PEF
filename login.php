@@ -111,39 +111,57 @@ if(isset($_SESSION["username"])){
     </div><!-- main menu -->
 </header><!-- Header -->
 
-    <form method="POST" action="verify.php" style="margin-top:50px;">
-      <div class="row">
-        <div class="small-8">
+<div class="breadcrumb-section image-bg ">
+    <div class="overlay"></div>
+    <div class="breadcrumb-content container">
+        <h1>Ingresa con tu cuenta</h1>
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">Log In</li>
+        </ol>
+    </div>
+</div><!-- breadcrumb-section -->
 
-          <div class="row">
-            <div class="small-4 columns">
-              <label for="right-label" class="right inline">Email</label>
+<div class="contact-form-section section-padding">
+    <div class="container">
+        <div class="contact-info">
+    <form method="POST" action="verify.php">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <i aria-hidden="true"></i>
+                    <input id="username"
+                           name="username"
+                           type="email"
+                           class="form-control control-1"
+                           required="required"
+                           placeholder="Email"
+                    >
+                </div>
             </div>
-            <div class="small-8 columns">
-              <input type="email" id="right-label" placeholder="nayantronix@gmail.com" name="username">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <i aria-hidden="true"></i>
+                    <input id="pwd"
+                           name="pwd"
+                           type="password"
+                           class="form-control"
+                           required="required"
+                           placeholder="Password"
+                           type="password">
+                </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="small-4 columns">
-              <label for="right-label" class="right inline">Password</label>
+            <div class="submit-button">
+                <button type="submit"  class="btn btn-primary">Enviar</button>
+                <input type="reset" id="right-label" value="Reset" class="btn btn-primary" >
             </div>
-            <div class="small-8 columns">
-              <input type="password" id="right-label" name="pwd">
-            </div>
-          </div>
 
-          <div class="row">
-            <div class="small-4 columns">
 
-            </div>
-            <div class="small-8 columns">
-              <input type="submit" id="right-label" value="Login" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-              <input type="reset" id="right-label" value="Reset" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-            </div>
-          </div>
-        </div>
-      </div>
     </form>
+        </div>
+    </div>
+</div>
+
 
 
     <div class="row" style="margin-top:10px;">
