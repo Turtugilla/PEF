@@ -105,13 +105,105 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         </nav><!-- navbar -->
     </div><!-- main menu -->
 </header><!-- Header -->
-    
-    <div class="row" style="margin-top:50px;">
-      <div class="small-12">
+<div class="breadcrumb-section image-bg ">
+    <div class="overlay"></div>
+    <div class="breadcrumb-content container">
+        <h1>Contacto</h1>
+        <ol class="breadcrumb">
+            <li><a href="index.php">Regresar</a></li>
+            <li class="active">Contacto</li>
+        </ol>
+    </div>
+</div><!-- breadcrumb-section -->
 
-        <p>¿Quieres contactarnos? Envianos un correo a <a href="mailto:soporte@pef.com">soporte@pef.com</a></p>
+<div id="alerta-correo"
+     class="alert alert-success alert-dismissible"
+     hidden="true"
+     style="text-align: center;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    Mensaje enviado con éxito, en breve nos contactaremos contigo
+</div>
 
-          <footer class="footer">
+
+<div class="contact-form-section section-padding">
+
+    <div class="container">
+        <div class="section-title text-center">
+            <div class="container">
+                <h1>Contacto</h1>
+                <h4>Carretera a Garcia Km 1.3 Parque Stiva Santa Catarina N.L., Santa Catarina, Nuevo León
+                </h4>
+                <h4>Tel.(81)...</h4>
+
+            </div>
+        </div>
+        <div class="contact-info">
+            <h1>También puedes escribirnos</h1>
+            <form id="contact-form"
+                  name="contact-form"
+                  method="post"
+                  class="contact-form"
+                  onsubmit="enviarEmail($('#nombre').val(),$('#tema').val(),
+                          $('#email').val(),$('#mensaje').val()); return false;">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input id="nombre"
+                                   name="nombre"
+                                   type="text"
+                                   class="form-control control-1"
+                                   required="required"
+                                   placeholder="Nombre"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <i class="fa fa-th-list" aria-hidden="true"></i>
+                            <input id="tema"
+                                   name="tema"
+                                   type="text"
+                                   class="form-control"
+                                   required="required"
+                                   placeholder="Tema">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <input id="email"
+                                   name="email"
+                                   type="email"
+                                   class="form-control"
+                                   required="required"
+                                   placeholder="Correo Electrónico">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <i class="fa fa-comments" aria-hidden="true"></i>
+                            <textarea id="mensaje"
+                                      name="mensaje"
+                                      required="required"
+                                      class="form-control"
+                                      rows="7"
+                                      placeholder="Comentarios"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <button type="submit"  class="btn btn-primary">Enviar</button>
+                </div>
+            </form><!-- contact form -->
+            <footer style="text-align: right" class="footer">Grupo CM ®, todos los derechos reservados 2018.
+            </footer>
+        </div>
+    </div><!-- container -->
+</div><!-- contact form section -->
+
+<footer class="footer">
     <div class="contact-section">
         <div class="container">
             <div class="row">
@@ -183,9 +275,11 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         </div>
     </div><!-- footer bottom -->
 </footer><!-- footer -->
+
 <script src="js/vendor/jquery.js"></script>
 <script src="js/foundation.min.js"></script>
 <script src="js/bienvenida.js"></script>
+<script src="js/contact.js"/>
 <script>
     $(document).foundation();
 </script>
