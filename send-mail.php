@@ -27,8 +27,11 @@ $mail->Port = 587;
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'tls';
+
+/*En estas dos siguientes lineas va el código de las credenciales de email que
+ va hostear el enviar mensajes por correo electrónico */
 $mail->Username = 'dleonmxn@gmail.com';
-$mail->Password = 'tigres100%';
+$mail->Password = '******';
 
 
 
