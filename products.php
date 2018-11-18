@@ -122,15 +122,9 @@ include 'config.php';
         <div class="row" >
 			<?php
                  $result = pg_query($db_connection,"SELECT * FROM products");
-                 if(!$result){
-                 	echo "Ocurrió un error. \n";
-                 	exit;
-				 }
 
-				 while($row = pg_fetch_row($result)){
-                 	echo "Test:  $row[0] Test: $row[1]";
-                 	echo "<br />\n";
-				 }
+
+
 			?>
 
             <?php
@@ -138,33 +132,37 @@ include 'config.php';
                     $product_id = array();
                     $product_quantity = array();
 
-                    $result = $db_connection->query('SELECT * FROM products');
-                    if($result === FALSE) {
-                        die(mysql_error());
+                    if(!$result){
+                    	echo "Ocurrió un error. \n";
+                    	exit;
                     }
+
+			        $resultArr = pg_fetch_all_columns($result);
 
                     if($result){
 
-                        while($obj = $result->fetch_object()) {
+                        foreach($resultArr as $array){
                                    echo '<div class="col-sm-4 project-content">';
                                    echo '<div class="project-title">';
-                                   echo '<h3>'.$obj->product_name.'</h3>';
+                                   echo '<h3>'.$array["product_name"].'</h3>';
                                    echo '</div>';
 
 
                                    echo '<div class="project-item">';
-                                   echo '<a href="images/products/'.$obj->product_img_name.'" class="image-link">';
-                                   echo '<img class ="img-responsive" src="images/products/'.$obj->product_img_name.'"/>';
+                                   echo '<a href="images/products/'.$array["product_img_name"].'" class="image-link">';
+                                   echo '<img class ="img-responsive" src="images/products/'.$array["product_img_name"].'"/>';
                                    echo '</a>';
                                    echo '</div>';
 
                                    echo '<div class="project-info">';
-                                   echo '<p><strong>Codigo de Producto</strong>: '.$obj->product_code.'</p>';
-                                   echo '<p><strong>Descripcion</strong>: '.$obj->product_desc.'</p>';
-                                   echo '<p><strong>Unidades disponibles</strong>: '.$obj->qty.'</p>';
-                                   echo '<p><strong>Precio</strong>: '.$currency.$obj->price.'</p>';
+                                   echo '<p><strong>Codigo de Producto</strong>: '.$array["product_code"].'</p>';
+                                   echo '<p><strong>Descripcion</strong>: '.$array["product_desc"].'</p>';
+                                   echo '<p><strong>Unidades disponibles</strong>: '.$array["qty"].'</p>';
+                                   echo '<p><strong>Precio</strong>: '.$currency.$array["price"].'</p>';
                             if($obj->qty > 0){
-                                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add To Cart" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+                                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" 
+                                             value="Add To Cart" 
+                                             style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
                             }
                             else {
                                 echo 'Producto Agotado!';
