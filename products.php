@@ -120,6 +120,19 @@ include 'config.php';
             </div>
         </div>
         <div class="row" >
+			<?php
+                 $result = pg_query($db_connection,"SELECT * FROM products");
+                 if(!$result){
+                 	echo "Ocurrió un error. \n";
+                 	exit;
+				 }
+
+				 while($row = pg_fetch_row($result)){
+                 	echo "Test:  $row[0] Test: $row[1]";
+                 	echo "<br />\n";
+				 }
+			?>
+
             <?php
                     $i=0;
                     $product_id = array();
@@ -162,8 +175,7 @@ include 'config.php';
                                    echo '</div>';
                                    echo '</div>';
 
-                          /*
-                             */
+
                         }
                     }
                        $_SESSION['product_id'] = $product_id;
