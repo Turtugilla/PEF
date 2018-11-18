@@ -8,5 +8,5 @@ $db_port = '5432';
 //$mysqli = new mysqli($db_host, $db_username, $db_password,$db_name);
 
 $db_connection = pg_connect("host=".$db_host." dbname=".db_name.
-	"user=".$db_username."password=".$db_password);
+	"user=".$db_username." password=".$db_password);
 ?>
