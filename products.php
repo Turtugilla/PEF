@@ -125,7 +125,7 @@ include 'config.php';
                     $product_id = array();
                     $product_quantity = array();
 
-                    $result = $mysqli->query('SELECT * FROM products');
+                    $result = $db_connection->query('SELECT * FROM products');
                     if($result === FALSE) {
                         die(mysql_error());
                     }
