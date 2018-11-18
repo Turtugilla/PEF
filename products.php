@@ -144,23 +144,23 @@ include 'config.php';
                         foreach($resultArr as $array){
                                    echo '<div class="col-sm-4 project-content">';
                                    echo '<div class="project-title">';
-                                   echo '<h3>'.$array["product_name"].'</h3>';
+                                   echo '<h3>'.$array['product_name'].'</h3>';
                                    echo '</div>';
 
 
                                    echo '<div class="project-item">';
-                                   echo '<a href="images/products/'.$array["product_img_name"].'" class="image-link">';
+                                   echo '<a href="images/products/'.$array['product_img_name'].'" class="image-link">';
                                    echo '<img class ="img-responsive" src="images/products/'.$array["product_img_name"].'"/>';
                                    echo '</a>';
                                    echo '</div>';
 
                                    echo '<div class="project-info">';
-                                   echo '<p><strong>Codigo de Producto</strong>: '.$array["product_code"].'</p>';
-                                   echo '<p><strong>Descripcion</strong>: '.$array["product_desc"].'</p>';
-                                   echo '<p><strong>Unidades disponibles</strong>: '.$array["qty"].'</p>';
-                                   echo '<p><strong>Precio</strong>: '.$currency.$array["price"].'</p>';
+                                   echo '<p><strong>Codigo de Producto</strong>: '.$array['product_code'].'</p>';
+                                   echo '<p><strong>Descripcion</strong>: '.$array['product_desc'].'</p>';
+                                   echo '<p><strong>Unidades disponibles</strong>: '.$array['qty'].'</p>';
+                                   echo '<p><strong>Precio</strong>: '.$currency.$array['price'].'</p>';
                             if($obj->qty > 0){
-                                echo '<p><a href="update-cart.php?action=add&id='.$array["id"].'"><input type="submit" 
+                                echo '<p><a href="update-cart.php?action=add&id='.$array['id'].'"><input type="submit" 
                                              value="Add To Cart" 
                                              style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
                             }
