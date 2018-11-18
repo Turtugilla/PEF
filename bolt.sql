@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2018 at 12:39 AM
+-- Generation Time: Nov 18, 2018 at 06:27 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -34,8 +34,8 @@ CREATE TABLE `orders` (
   `units` int(5) NOT NULL,
   `total` int(15) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `email` varchar(255) NOT NULL,
-  `idProduct` int(11) DEFAULT NULL
+  `idProduct` int(11) DEFAULT NULL,
+  `idUsuario` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -64,7 +64,8 @@ INSERT INTO `products` (`id`, `product_code`, `product_name`, `product_desc`, `p
 (3, 'PEF3', 'Pavo Entero', 'Traemos para ti el pavo natural, el complemento perfecto para tus cenas decembrinas. Al ser natural lo puedes combinar con diferentes recetas, no dudes en probarlo.', 'pavo.png', 500, '280.00'),
 (4, 'PEF4', 'Pierna de Pollo', 'Sin duda alguna en tu alimentacion balanceada no debe faltar la carne blanca como es la pierna de pollo que te ofrecemos con la frescura que lo caracteriza, la proteina que te ofrece y sus nutrientes son perfectos para tener la energia que requieres.', 'pierna.jpg', 500, '99.00'),
 (5, 'PEF5', 'Pechuga de Pollo', 'Prepara deliciosas recetas con la pechuga de pollo con piel y hueso. Comprala por kilo al mejor precio aqui en la tienda en linea. Te garantizamos su frescura y alto contenido en proteinas para que te mantengas bien alimentado.', 'pechuga.jpg', 500, '150.00'),
-(6, 'PEF6', 'Alitas de Pollo', 'Riquisimas alitas de pollo de la mas alta calidad, cuentan con un sabor excelente. Ideales para una botana o bien para una parrillada. Se le puede agregar algun tipo de salsa como BBQ o Buffalo.', 'alitas.jpg', 500, '79.00');
+(6, 'PEF6', 'Alitas de Pollo', 'Riquisimas alitas de pollo de la mas alta calidad, cuentan con un sabor excelente. Ideales para una botana o bien para una parrillada. Se le puede agregar algun tipo de salsa como BBQ o Buffalo.', 'alitas.jpg', 500, '79.00'),
+(7, 'HAVEZTRUZ', 'Huevo de Avestruz', 'huevos muy caros, son ilegales', '', 10, '20.00');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,8 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `city`, `pin`, `email`, 
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idProduct` (`idProduct`);
+  ADD KEY `idProduct` (`idProduct`),
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
 -- Indexes for table `products`
@@ -131,7 +133,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
