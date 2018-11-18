@@ -65,20 +65,14 @@ class Examples extends CI_Controller {
 		}
 	}
 
-	public function employees_management()
+	public function users_management()
 	{
 			$crud = $this->new_crud();
 
-			$crud->set_theme('datatables');
-			$crud->set_table('employees');
-			$crud->set_relation('officeCode','offices','city');
-			$crud->display_as('officeCode','Office City');
-			$crud->set_subject('Employee');
 
-			$crud->required_fields('lastName');
-
+			$crud->set_table('users');
+			$crud->set_subject('Users');
 			$crud->set_field_upload('file_url','assets/uploads/files');
-
 			$output = $crud->render();
 
 			$this->_example_output($output);
@@ -104,9 +98,6 @@ class Examples extends CI_Controller {
 	public function orders_management()
 	{
 			$crud = $this->new_crud();
-
-			$crud->set_relation('customerNumber','customers','{contactLastName} {contactFirstName}');
-			$crud->display_as('customerNumber','Customer');
 			$crud->set_table('orders');
 			$crud->set_subject('Order');
 			$crud->unset_add();
@@ -123,7 +114,7 @@ class Examples extends CI_Controller {
 
 			$crud->set_table('products');
 			$crud->set_subject('Product');
-			$crud->unset_columns('productDescription');
+
 			$crud->callback_column('buyPrice',array($this,'valueToEuro'));
 
 			$output = $crud->render();
