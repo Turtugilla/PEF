@@ -160,7 +160,7 @@ include 'config.php';
                                    echo '<p><strong>Unidades disponibles</strong>: '.$array["qty"].'</p>';
                                    echo '<p><strong>Precio</strong>: '.$currency.$array["price"].'</p>';
                             if($obj->qty > 0){
-                                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" 
+                                echo '<p><a href="update-cart.php?action=add&id='.$array["id"].'"><input type="submit" 
                                              value="Add To Cart" 
                                              style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
                             }
