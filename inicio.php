@@ -3,11 +3,8 @@
 //if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
-if(!isset($_SESSION["username"])){
-  header("location:inicio.php");
-}
-include 'config.php';
 ?>
+
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -106,44 +103,46 @@ include 'config.php';
           </nav><!-- navbar -->
       </div><!-- main menu -->
   </header><!-- Header -->
-<div class="container">
-    <div class="row" style="margin-top:10px;">
-      <div class="large-12">
-        <h3>MIS ORDENES</h3>
-        <hr>
-
-        <?php
-          $user = $_SESSION["username"];
-          $result = $mysqli->query("SELECT * from orders where email='".$user."'");
-          if($result) {
-            while($obj = $result->fetch_object()) {
-              //echo '<div class="large-6">';
-              echo '<p><h4>ID de la Orden ->'.$obj->id.'</h4></p>';
-              echo '<p><strong>Fecha de compra</strong>: '.$obj->date.'</p>';
-              echo '<p><strong>Codigo de producto</strong>: '.$obj->product_code.'</p>';
-              echo '<p><strong>Nombre del producto</strong>: '.$obj->product_name.'</p>';
-              echo '<p><strong>Precio</strong>: '.$obj->price.'</p>';
-              echo '<p><strong>Cantidad</strong>: '.$obj->units.'</p>';
-              echo '<p><strong>Costo total</strong>: '.$currency.$obj->total.'</p>';
-              //echo '</div>';
-              //echo '<div class="large-6">';
-              //echo '<img src="images/products/sports_band.jpg">';
-              //echo '</div>';
-              echo '<p><hr></p>';
-
-            }
-          }
-        ?>
-      </div>
-    </div>
 
 
-</div>
+      
+<!--
+    <img data-interchange="[images/bolt-retina.jpg, (retina)], [images/bolt-landscape.jpg, (large)], [images/bolt-mobile.jpg, (mobile)], [images/bolt-landscape.jpg, (medium)]">
+    <noscript><img src="images/bolt-landscape.jpg"></noscript>
+-->
 
-    <div class="row" style="margin-top:10px;">
-      <div class="small-12">
+  <div class="home-section image-bg">
+      <div class="overlay"></div>
+      <div class="home-content">
+          <div class="container">
+              <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+                      <div class="item active">
 
-         <footer class="footer">
+                      </div>
+                      <div class="item">
+
+                      </div>
+                      <div class="item">
+
+                      </div>
+                  </div>
+                  <a class="carousel-left" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                  <a class="carousel-right" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+              </div>
+
+              <div class="services">
+
+
+
+			  </div>
+              </div><!-- services -->
+          </div><!-- container -->
+      </div><!-- home content -->
+
+  </div><!-- home -->
+
+  <footer class="footer">
       <div class="contact-section">
           <div class="container">
               <div class="row">

@@ -4,7 +4,7 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 if($_SESSION["type"]!="admin") {
-  header("location:index.php");
+  header("location:inicio.php");
 }
 
 include 'config.php';

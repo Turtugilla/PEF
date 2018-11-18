@@ -78,11 +78,11 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php"><img class="img-responsive" src="images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="inicio.php"><img class="img-responsive" src="images/logo.png" alt="Logo"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.php">Inicio</a></li>
+                        <li class="active"><a href="inicio.php">Inicio</a></li>
                         <li><a href="about.php">Quiénes Somos</a></li>
                         <li><a href="products.php">Productos</a></li>
                         <li><a href="cart.php">Carrito</a></li>
@@ -110,7 +110,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <div class="breadcrumb-content container">
         <h1>Contacto</h1>
         <ol class="breadcrumb">
-            <li><a href="index.php">Regresar</a></li>
+            <li><a href="inicio.php">Regresar</a></li>
             <li class="active">Contacto</li>
         </ol>
     </div>
