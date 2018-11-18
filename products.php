@@ -137,7 +137,7 @@ include 'config.php';
                     	exit;
                     }
 
-			        $resultArr = pg_fetch_all_columns($result);
+			        $resultArr = pg_fetch_all($result);
 
                     if($result){
 
