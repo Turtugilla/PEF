@@ -4,11 +4,11 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 if(!isset($_SESSION["username"])) {
-  header("location:inicio.php");
+  header("location:index.php");
 }
 
 if($_SESSION["type"]!="admin") {
-  header("location:inicio.php");
+  header("location:index.php");
 }
 
 include 'config.php';
@@ -89,7 +89,7 @@ include 'config.php';
                   </div>
                   <div class="collapse navbar-collapse" id="navbar-collapse">
                       <ul class="nav navbar-nav navbar-right">
-                          <li class="active"><a href="inicio.php">Inicio</a></li>
+                          <li class="active"><a href="index.php">Inicio</a></li>
                           <li><a href="about.php">Quiénes Somos</a></li>
                           <li><a href="products.php">Productos</a></li>
                           <li><a href="cart.php">Carrito</a></li>
@@ -118,7 +118,7 @@ include 'config.php';
 	  <div class="breadcrumb-content container">
 		  <h1>Mi cuenta</h1>
 		  <ol class="breadcrumb">
-			  <li><a href="inicio.php">Regresar</a></li>
+			  <li><a href="index.php">Regresar</a></li>
 			  <li class="active">Account</li>
 		  </ol>
 	  </div>

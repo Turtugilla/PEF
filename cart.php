@@ -82,7 +82,7 @@ include "config.php";
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="inicio.php">Inicio</a></li>
+                        <li class="active"><a href="index.php">Inicio</a></li>
                         <li><a href="about.php">Quiénes Somos</a></li>
                         <li><a href="products.php">Productos</a></li>
                         <li><a href="cart.php">Carrito</a></li>

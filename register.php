@@ -3,7 +3,7 @@
 //if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
-if (isset($_SESSION["username"])) {header ("location:inicio.php");}
+if (isset($_SESSION["username"])) {header ("location:index.php");}
 
 
 ?>
@@ -22,7 +22,7 @@ if (isset($_SESSION["username"])) {header ("location:inicio.php");}
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="inicio.php">POLLITOS EN FUGA</a></h1>
+          <h1><a href="index.php">POLLITOS EN FUGA</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>

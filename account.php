@@ -6,7 +6,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 if(!isset($_SESSION["username"])) {
   echo '<h1>Invalid Login! Redirecting...</h1>';
-  header("Refresh: 3; url=inicio.php");
+  header("Refresh: 3; url=index.php");
 }
 
 if($_SESSION["type"]==="admin") {
@@ -32,7 +32,7 @@ include 'config.php';
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="inicio.php">BOLT Sports Shop</a></h1>
+          <h1><a href="index.php">BOLT Sports Shop</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
