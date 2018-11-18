@@ -1,1 +1,1 @@
-web: inicio.php
+web: inicio.php/
