@@ -144,7 +144,7 @@ include 'config.php';
                         foreach($resultArr as $array){
                                    echo '<div class="col-sm-4 project-content">';
                                    echo '<div class="project-title">';
-                                   echo '<h3>'.$array[1].'</h3>';
+                                   echo '<h3>'.$array['product_name'].'</h3>';
                                    echo '</div>';
 
 
