@@ -18,10 +18,11 @@ if(isset($_SESSION['cart'])) {
 
 
         $cost = $obj->price * $quantity;
+        $date = date('Y-m-d H:i:s');
+        $id = $_SESSION["id"];
 
-        $user = $_SESSION["username"];
-
-        $query = $mysqli->query("INSERT INTO orders (product_code, product_name, product_desc, price, units, total, email) VALUES('$obj->product_code', '$obj->product_name', '$obj->product_desc', $obj->price, $quantity, $cost, '$user')");
+        $query = $mysqli->query("INSERT INTO orders (dateposted) (price, units, total, date, idUsuario, idProduct) 
+           VALUES('$obj->price', $quantity, $cost ,$date, $quantity,1 ,$id)");
 
         if($query){
           $newqty = $obj->qty - $quantity;

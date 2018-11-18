@@ -1,222 +1,315 @@
 <?php
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2018, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
 
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
-if(session_id() == '' || !isset($_SESSION)){session_start();}
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-?>
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
+switch (ENVIRONMENT)
+{
+	case 'development':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
+	break;
 
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POLLITOS EN FUGA</title>
+	case 'testing':
+	case 'production':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '5.3', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+	break;
 
-      <link rel="stylesheet" href="css/main.css"/>
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="css/font-awesome.min.css">
-      <link rel="stylesheet" href="css/animate.css">
-      <link rel="stylesheet" href="css/magnific-popup.css">
-      <link rel="stylesheet" href="css/owl.carousel.css">
-      <link rel="stylesheet" href="css/main.css">
-      <link rel="stylesheet" href="css/responsive.css">
+	default:
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'The application environment is not set correctly.';
+		exit(1); // EXIT_ERROR
+}
 
-      <!-- icons -->
-      <link rel="icon" href="images/ico/favicon.ico">
-      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../images/ico/apple-touch-icon-57-precomposed.png">
-    <script src="js/vendor/modernizr.js"></script>
-  </head>
-  <body>
+/*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+	$system_path = 'system';
 
-  <header id="header">
-      <div class="top-bar">
-          <div class="container">
-              <div class="row">
-                  <div class="col-sm-8">
-                      <div class="info-box">
-                          <i class="fa fa-envelope"></i>
-                          <div class="info-text">
-                              <h5>Correo electrónico:</h5>
-                              <a href="mailto:cofee@diagram.com">cofee@diagram.com</a>
-                          </div>
-                      </div>
-                      <div class="info-box">
-                          <i class="fa fa-phone"></i>
-                          <div class="info-text">
-                              <h5>Teléfono:</h5>
-                              <span>+121 2134345678</span>
-                          </div>
-                      </div>
-                      <div class="info-box">
-                          <i class="fa fa-clock-o"></i>
-                          <div class="info-text">
-                              <h5>Horario Atención:</h5>
-                              <a href="#">Lun-Vie: 9:00 am - 6:00 pm</a>
-                          </div>
-                      </div>
-                  </div>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+	$application_folder = 'application';
 
-                  <div class="col-sm-4">
-
-                  </div>
-              </div>
-          </div><!-- container -->
-      </div><!-- top-bar -->
-
-      <div class="main-menu">
-          <nav class="navbar navbar-default">
-              <div class="container">
-                  <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                      </button>
-                      <a class="navbar-brand" href="index.html"><img class="img-responsive" src="images/logo.png" alt="Logo"></a>
-                  </div>
-                  <div class="collapse navbar-collapse" id="navbar-collapse">
-                      <ul class="nav navbar-nav navbar-right">
-                          <li class="active"><a href="index.php">Inicio</a></li>
-                          <li><a href="about.php">Quiénes Somos</a></li>
-                          <li><a href="products.php">Productos</a></li>
-                          <li><a href="cart.php">Carrito</a></li>
-                          <li><a href="orders.php">Ordenes</a></li>
-                          <li><a href="contact.php">Contacto</a></li>
-                          <?php
-
-                          if(isset($_SESSION['username'])){
-                              echo '<li><a href="account.php">Mi cuenta</a></li>';
-                              echo '<li><a href="logout.php">Salir</a></li>';
-                          }
-                          else{
-                              echo '<li><a href="login.php">Log In</a></li>';
-                              echo '<li><a href="register.php">Registrarse</a></li>';
-                          }
-                          ?>
-                      </ul>
-                  </div>
-              </div><!-- container -->
-          </nav><!-- navbar -->
-      </div><!-- main menu -->
-  </header><!-- Header -->
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = '';
 
 
-      
-<!--
-    <img data-interchange="[images/bolt-retina.jpg, (retina)], [images/bolt-landscape.jpg, (large)], [images/bolt-mobile.jpg, (mobile)], [images/bolt-landscape.jpg, (medium)]">
-    <noscript><img src="images/bolt-landscape.jpg"></noscript>
--->
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+	// The directory name, relative to the "controllers" directory.  Leave blank
+	// if your controller is not in a sub-directory within the "controllers" one
+	// $routing['directory'] = '';
 
-  <div class="home-section image-bg">
-      <div class="overlay"></div>
-      <div class="home-content">
-          <div class="container">
-              <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
-                  <div class="carousel-inner" role="listbox">
-                      <div class="item active">
+	// The controller class file name.  Example:  mycontroller
+	// $routing['controller'] = '';
 
-                      </div>
-                      <div class="item">
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
-                      </div>
-                      <div class="item">
 
-                      </div>
-                  </div>
-                  <a class="carousel-left" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                  <a class="carousel-right" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
-              </div>
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
-              <div class="services">
 
-                  </div>
-              </div><!-- services -->
-          </div><!-- container -->
-      </div><!-- home content -->
 
-  </div><!-- home -->
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
-  <footer class="footer">
-      <div class="contact-section">
-          <div class="container">
-              <div class="row">
-                  <div class="col-sm-3">
-                      <div class="contact-widget">
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
 
-                          <img class="img-responsive" src="images/logo2.png" alt="">
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
 
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                      </div>
-                  </div>
-                  <div class="col-sm-3">
-                      <div class="contact-widget">
-                          <h3>Business Hours</h3>
-                          <p>Our support available to help you 24 hours a day, seven days a week.</p>
-                          <p>Monday - Thursday @ 09.00 - 17.30</p>
-                          <p>Friday & Saturday @ 10.00 - 16.00</p>
-                          <p>Sunday - <span> Closed </span></p>
-                      </div>
-                  </div>
-                  <div class="col-sm-3">
-                      <div class="contact-widget">
-                          <h3>Quick Links</h3>
-                          <ul>
-                              <li><a href="#">About Us</a></li>
-                              <li><a href="#">Projects</a></li>
-                              <li><a href="#">Services</a></li>
-                              <li><a href="#">Latest News</a></li>
-                              <li><a href="#">Shop</a></li>
-                          </ul>
-                          <ul>
-                              <li><a href="#">Who We Are</a></li>
-                              <li><a href="#">Creer</a></li>
-                              <li><a href="#">Contac Us</a></li>
-                              <li><a href="#">Features</a></li>
-                              <li><a href="#">FAQ</a></li>
-                          </ul>
-                      </div>
-                  </div>
-                  <div class="col-sm-3">
-                      <div class="contact-widget">
-                          <h3>Our Office</h3>
-                          <address>
-                              <ul>
-                                  <li><span class="address">Address:</span>1052 – 1054 Christchurch Road, Bournemouth, BH7 6DS</li>
-                                  <li><span>Phone: </span>+210 2234 546 78</li>
-                                  <li><span>Email: </span><a href="#">support@diagram.com</a></li>
-                              </ul>
-                          </address>
-                          <ul class="footer-social list-inline">
-                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                              <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                              <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                              <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
-                          </ul>
-                      </div>
-                  </div>
-              </div><!-- row -->
+	if (($_temp = realpath($system_path)) !== FALSE)
+	{
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	}
+	else
+	{
+		// Ensure there's a trailing slash
+		$system_path = strtr(
+			rtrim($system_path, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		).DIRECTORY_SEPARATOR;
+	}
 
-          </div><!-- container -->
-      </div><!-- contact informetion -->
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
 
-      <div class="footer-bottom">
-          <div class="container">
-              <div class="copyright-text text-center">
-                  <p>&copy; Diagram 2017 | Design & Developed By <a href="http://www.gridbootstrap.com/">GridBootstrap</a></p>
-              </div>
-          </div>
-      </div><!-- footer bottom -->
-  </footer><!-- footer -->
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script src="js/bienvenida.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-  </body>
-</html>
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// Path to the system directory
+	define('BASEPATH', $system_path);
+
+	// Path to the front controller (this file) directory
+	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+	// Name of the "system" directory
+	define('SYSDIR', basename(BASEPATH));
+
+	// The path to the "application" directory
+	if (is_dir($application_folder))
+	{
+		if (($_temp = realpath($application_folder)) !== FALSE)
+		{
+			$application_folder = $_temp;
+		}
+		else
+		{
+			$application_folder = strtr(
+				rtrim($application_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+	{
+		$application_folder = BASEPATH.strtr(
+			trim($application_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
+
+	// The path to the "views" directory
+	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.'views';
+	}
+	elseif (is_dir($view_folder))
+	{
+		if (($_temp = realpath($view_folder)) !== FALSE)
+		{
+			$view_folder = $_temp;
+		}
+		else
+		{
+			$view_folder = strtr(
+				rtrim($view_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.strtr(
+			trim($view_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require_once BASEPATH.'core/CodeIgniter.php';

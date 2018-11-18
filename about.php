@@ -14,7 +14,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
     <link rel="stylesheet" href="css/main.css"/>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet"  href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
@@ -82,7 +82,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.php">Inicio</a></li>
+                        <li class="active"><a href="inicio.php">Inicio</a></li>
                         <li><a href="about.php">Quiénes Somos</a></li>
                         <li><a href="products.php">Productos</a></li>
                         <li><a href="cart.php">Carrito</a></li>
@@ -112,7 +112,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <div class="breadcrumb-content container">
         <h1>Quiénes Somos</h1>
         <ol class="breadcrumb">
-            <li><a href="index.php">Regresar</a></li>
+            <li><a href="inicio.php">Regresar</a></li>
             <li class="active">Acerca de </li>
         </ol>
     </div>

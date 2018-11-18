@@ -4,11 +4,11 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 if(!isset($_SESSION["username"])) {
-  header("location:index.php");
+  header("location:inicio.php");
 }
 
 if($_SESSION["type"]!="admin") {
-  header("location:index.php");
+  header("location:inicio.php");
 }
 
 include 'config.php';
@@ -89,7 +89,7 @@ include 'config.php';
                   </div>
                   <div class="collapse navbar-collapse" id="navbar-collapse">
                       <ul class="nav navbar-nav navbar-right">
-                          <li class="active"><a href="index.php">Inicio</a></li>
+                          <li class="active"><a href="inicio.php">Inicio</a></li>
                           <li><a href="about.php">Quiénes Somos</a></li>
                           <li><a href="products.php">Productos</a></li>
                           <li><a href="cart.php">Carrito</a></li>
@@ -113,33 +113,43 @@ include 'config.php';
       </div><!-- main menu -->
   </header><!-- Header -->
 
-    <div class="row" style="margin-top:10px;">
-      <div class="large-12">
-        <h3>Hey Administrador!</h3>
-        <?php
-          $result = $mysqli->query("SELECT * from products order by id asc");
-          if($result) {
-            while($obj = $result->fetch_object()) {
-              echo '<div class="large-4 columns">';
-              echo '<p><h3>'.$obj->product_name.'</h3></p>';
-              echo '<img src="images/products/'.$obj->product_img_name.'"/>';
-              echo '<p><strong>Codigo de producto</strong>: '.$obj->product_code.'</p>';
-              echo '<p><strong>Descripcion</strong>: '.$obj->product_desc.'</p>';
-              echo '<p><strong>Unidades disponibles</strong>: '.$obj->qty.'</p>';
-              echo '<div class="large-6 columns" style="padding-left:0;">';
-              echo '<form method="post" name="update-quantity" action="admin-update.php">';
-              echo '<p><strong>Agregar</strong>:</p>';
-              echo '</div>';
-              echo '<div class="large-6 columns">';
-              echo '<input type="number" name="quantity[]"/>';
+  <div class="breadcrumb-section image-bg ">
+	  <div class="overlay"></div>
+	  <div class="breadcrumb-content container">
+		  <h1>Mi cuenta</h1>
+		  <ol class="breadcrumb">
+			  <li><a href="inicio.php">Regresar</a></li>
+			  <li class="active">Account</li>
+		  </ol>
+	  </div>
+  </div><!-- breadcrumb-section -->
 
-              echo '</div>';
-              echo '</div>';
-            }
-          }
-        ?>
-      </div>
-    </div>
+
+
+  <!--
+      <img data-interchange="[images/bolt-retina.jpg, (retina)], [images/bolt-landscape.jpg, (large)], [images/bolt-mobile.jpg, (mobile)], [images/bolt-landscape.jpg, (medium)]">
+      <noscript><img src="images/bolt-landscape.jpg"></noscript>
+  -->
+
+	  <div class="container">
+		  <div class="section-title text-center">
+			  <h1>Adminstrador</h1>
+		  </div>
+       <div class="section-padding">
+		  <button  onclick="window.location.replace('index.php/examples/users_management')"
+				   type="button">Configuración de Usuarios</button>
+
+		  <button  onclick="window.location.replace('index.php/examples/orders_management')"
+				   type="button">Configuración de Ordenes</button>
+
+		  <button  onclick="window.location.replace('index.php/examples/products_management')"
+				   type="button">Configuración de Productos</button>
+	   </div>
+
+	  </div><!-- container -->
+
+
+
 <footer class="footer">
       <div class="contact-section">
           <div class="container">

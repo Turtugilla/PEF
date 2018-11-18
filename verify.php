@@ -24,7 +24,7 @@ if($result){
       $_SESSION['type'] = $obj->type;
       $_SESSION['id'] = $obj->id;
       $_SESSION['fname'] = $obj->fname;
-      header("location:index.php");
+      header("location:inicio.php");
     } else {
 
         if($flag === 'true'){
@@ -37,7 +37,7 @@ if($result){
 
 function redirect() {
   echo '<h1>Invalid Login! Redirecting...</h1>';
-  header("Refresh: 3; url=index.php");
+  header("Refresh: 3; url=inicio.php");
 }
 
 

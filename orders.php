@@ -4,7 +4,7 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 if(!isset($_SESSION["username"])){
-  header("location:index.php");
+  header("location:inicio.php");
 }
 include 'config.php';
 ?>
@@ -83,7 +83,7 @@ include 'config.php';
                   </div>
                   <div class="collapse navbar-collapse" id="navbar-collapse">
                       <ul class="nav navbar-nav navbar-right">
-                          <li class="active"><a href="index.php">Inicio</a></li>
+                          <li class="active"><a href="inicio.php">Inicio</a></li>
                           <li><a href="about.php">Quiénes Somos</a></li>
                           <li><a href="products.php">Productos</a></li>
                           <li><a href="cart.php">Carrito</a></li>
@@ -106,7 +106,7 @@ include 'config.php';
           </nav><!-- navbar -->
       </div><!-- main menu -->
   </header><!-- Header -->
-
+<div class="container">
     <div class="row" style="margin-top:10px;">
       <div class="large-12">
         <h3>MIS ORDENES</h3>
@@ -138,7 +138,7 @@ include 'config.php';
     </div>
 
 
-
+</div>
 
     <div class="row" style="margin-top:10px;">
       <div class="small-12">
