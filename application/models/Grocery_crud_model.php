@@ -4,7 +4,7 @@ class Grocery_crud_model {
 	public $ESCAPE_CHAR = '"';
 	public $CAPABLE_CONCAT = TRUE;
 
-	public function __construct(){
+	/*public function __construct(){
 		parent::__construct();
 		// this is a simple hack to get ESCAPE_CHAR
 		$test = $this->protect_identifiers('t');
@@ -12,7 +12,7 @@ class Grocery_crud_model {
 		if($first_char !== 't'){
 			$this->ESCAPE_CHAR = $first_char;
 		}
-	}
+	}*/
 
 	public function protect_identifiers($value)
 	{
