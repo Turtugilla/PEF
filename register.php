@@ -161,7 +161,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         <div class="container">
             <div class="section-title text-center">
                 <div class="container">
-    
+                   <form action="insert.php">
                        <div class="col-sm-4">
                         <div class="form-group">
                             <i aria-hidden="true"></i>
@@ -252,13 +252,14 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                             >
                         </div>
                     </div>
+
+					<div class="submit-button">
+                      <button type="submit"  class="btn btn-primary">Enviar</button>
+                      <input type="reset" id="right-label" value="Reset" class="btn btn-primary" >
+					</div>
+				 
                     
-                      <div class="submit-button">
-                <button type="submit"  class="btn btn-primary">Enviar</button>
-                <input type="reset" id="right-label" value="Reset" class="btn btn-primary" >
-            </div>
-                    
-                </div>
+                </form>
             </div>
         </div>
     </div>
