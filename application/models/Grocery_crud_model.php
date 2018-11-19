@@ -430,41 +430,52 @@ class Grocery_crud_model  extends CI_Model  {
     	$this->db->delete($field_info->relation_table);
     }
 
-	function get_field_types_basic_table()
-	{
-		$db_field_types = array();
-		foreach($this->get_field_types($this->table_name) as $db_field_type)
-		{
-			$db_type = $db_field_type->type;
-			$length = $db_field_type->max_length;
-			$db_field_types[$db_field_type->name]['db_max_length'] = $length;
-			$db_field_types[$db_field_type->name]['db_type'] = $db_type;
-			$db_field_types[$db_field_type->name]['db_null'] = true;
-			$db_field_types[$db_field_type->name]['db_extra'] = '';
-		}
+    function get_field_types_basic_table()
+    {
+    	$db_field_types = array();
+    	foreach($this->db->query("SHOW COLUMNS FROM `{$this->table_name}`")->result() as $db_field_type)
+    	{
+    		$type = explode("(",$db_field_type->Type);
+    		$db_type = $type[0];
 
-		$results = $this->get_field_types($this->table_name);
-		foreach($results as $num => $row)
-		{
-			$row = (array)$row;
-			$results[$num] = (object)( array_merge($row, $db_field_types[$row['name']])  );
-		}
-		return $results;
-	}
+    		if(isset($type[1]))
+    		{
+    			if(substr($type[1],-1) == ')')
+    			{
+    				$length = substr($type[1],0,-1);
+    			}
+    			else
+    			{
+    				list($length) = explode(" ",$type[1]);
+    				$length = substr($length,0,-1);
+    			}
+    		}
+    		else
+    		{
+    			$length = '';
+    		}
+    		$db_field_types[$db_field_type->Field]['db_max_length'] = $length;
+    		$db_field_types[$db_field_type->Field]['db_type'] = $db_type;
+    		$db_field_types[$db_field_type->Field]['db_null'] = $db_field_type->Null == 'YES' ? true : false;
+    		$db_field_types[$db_field_type->Field]['db_extra'] = $db_field_type->Extra;
+    	}
 
-	function get_field_types($table_name)
-	{
-		$results = $this->db->field_data($table_name);
-		// some driver doesn't provide primary_key information
-		foreach($results as $num => $row)
-		{
-			$row = (array)$row;
-			if(!array_key_exists('primary_key', $row)){
-				$results[$num]->primary_key = 0;
-			}
-		}
-		return $results;
-	}
+    	$results = $this->db->field_data($this->table_name);
+    	foreach($results as $num => $row)
+    	{
+    		$row = (array)$row;
+    		$results[$num] = (object)( array_merge($row, $db_field_types[$row['name']])  );
+    	}
+
+    	return $results;
+    }
+
+    function get_field_types($table_name)
+    {
+    	$results = $this->db->field_data($table_name);
+
+    	return $results;
+    }
 
     function db_update($post_array, $primary_key_value)
     {
