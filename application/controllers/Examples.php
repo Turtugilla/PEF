@@ -97,13 +97,9 @@ class Examples extends CI_Controller {
 	public function orders_management()
 	{
 			$crud = $this->new_crud();
-
-			$crud->set_relation('customerNumber','customers','{contactLastName} {contactFirstName}');
-			$crud->display_as('customerNumber','Customer');
 			$crud->set_table('orders');
 			$crud->set_subject('Order');
-			$crud->unset_add();
-			$crud->unset_delete();
+
 
 			$output = $crud->render();
 
@@ -116,6 +112,8 @@ class Examples extends CI_Controller {
 
 			$crud->set_table('products');
 			$crud->set_subject('Product');
+		    $crud->unset_add();
+	     	$crud->unset_delete();
 		    $output = $crud->render();
 
 		    $this->_example_output($output);
