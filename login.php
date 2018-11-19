@@ -131,7 +131,7 @@ if(isset($_SESSION["username"])){
                 <div class="form-group">
                     <i aria-hidden="true"></i>
                     <input id="username"
-                           name="username"
+                           name="email"
                            type="email"
                            class="form-control control-1"
                            required="required"
