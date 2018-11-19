@@ -123,8 +123,8 @@ class Examples extends CI_Controller {
 
 			$crud->set_table('products');
 			$crud->set_subject('Product');
-			$crud->unset_columns('productDescription');
-			$crud->callback_column('buyPrice',array($this,'valueToEuro'));
+			
+
 
 			$output = $crud->render();
 
