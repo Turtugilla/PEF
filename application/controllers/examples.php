@@ -128,7 +128,6 @@ class Examples extends CI_Controller {
 
 
 
-			$this->_example_output($output);
 	}
 
 	public function valueToEuro($value, $row)
