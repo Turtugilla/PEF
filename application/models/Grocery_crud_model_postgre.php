@@ -1,5 +1,5 @@
 <?php
-class Grocery_crud_model_postgre extends grocery_CRUD_Generic_Model{
+class Grocery_crud_model_Postgre extends grocery_CRUD_Generic_Model{
 	public $subdriver = '';
 
 	public function __construct(){
