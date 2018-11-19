@@ -12,7 +12,7 @@ class Examples extends CI_Controller {
 
     public function new_crud(){
         $db_driver = $this->db->platform();
-        $model_name = 'grocery_crud_model_'.$db_driver;
+        $model_name = 'grocery_crud_model_postgre';
         $model_alias = 'm'.substr(md5(rand()), 0, rand(4,15) );
 
         unset($this->{$model_name});
@@ -123,7 +123,7 @@ class Examples extends CI_Controller {
 
 			$crud->set_table('products');
 			$crud->set_subject('Product');
-			
+
 
 
 			$output = $crud->render();
