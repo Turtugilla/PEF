@@ -47,7 +47,7 @@ include 'config.php';
           <li><a href="contact.php">Contact</a></li>
           <?php
 
-          if(isset($_SESSION['username'])){
+          if(isset($_SESSION['email'])){
             echo '<li class="active"><a href="account.php">My Account</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
           }

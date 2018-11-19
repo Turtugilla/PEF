@@ -95,7 +95,7 @@ if(isset($_SESSION["username"])){
                         <li><a href="contact.php">Contacto</a></li>
                         <?php
 
-                        if(isset($_SESSION['username'])){
+                        if(isset($_SESSION['email'])){
                             echo '<li><a href="account.php">Mi cuenta</a></li>';
                             echo '<li><a href="logout.php">Salir</a></li>';
                         }
