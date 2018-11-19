@@ -199,24 +199,24 @@ class Grocery_crud_model  extends CI_Model  {
     	$this->db->limit( $value , $offset );
     }
 
+
+
+
     function get_total_results()
-    {
-        // A fast way to calculate the total results
-        $key = $this->get_primary_key();
+	{
+		//set_relation_n_n special queries. We prefer sub queries from a simple join for the relation_n_n as it is faster and more stable on big tables.
+		if(!empty($this->relation_n_n))
+		{
+			$select = $this->protect_identifiers($this->table_name).'.'.'*';
+			$select = $this->relation_n_n_queries($select);
 
-    	//set_relation_n_n special queries. We prefer sub queries from a simple join for the relation_n_n as it is faster and more stable on big tables.
-    	if(!empty($this->relation_n_n))
-    	{
-    		$select = "{$this->table_name}." . $key;
-    		$select = $this->relation_n_n_queries($select);
+			$this->db->select($select,false);
 
-    		$this->db->select($select,false);
-    	} else {
-            $this->db->select($this->table_name . '.' . $key);
-        }
-        
-        return $this->db->get($this->table_name)->num_rows();
-    }
+			return $this->db->get($this->table_name)->num_rows();
+		}
+
+		return $this->db->count_all_results($this->table_name);
+	}
 
     function set_basic_table($table_name = null)
     {
