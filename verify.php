@@ -24,7 +24,7 @@ $resultArr = pg_fetch_all($result);
 
 
 foreach($resultArr as $array){
-	if($array['email'] === $username && $array['password'] === $password){
+	if($array['email'] === $email && $array['password'] === $password){
 		$_SESSION['email'] = $email;
 		$_SESSION['type'] = $array['type'];
 		$_SESSION['id'] = $array['id'];
