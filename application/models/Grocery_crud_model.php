@@ -143,17 +143,17 @@ class Grocery_crud_model  extends CI_Model  {
 			if($use_template)
 			{
 				$title_field_selection_table = str_replace(" ", "&nbsp;", $title_field_selection_table);
-				$field .= $this->build_concat_from_template($this->protect_identifiers($title_field_selection_table));
-				//$field .= "CONCAT('".str_replace(array('{','}'),array("',COALESCE(",", ''),'"),str_replace("'","\\'",$this->protect_identifiers($title_field_selection_table)))."')";
+				$field .= "CONCAT('".str_replace(array('{','}'),array("',COALESCE(",", ''),'"),str_replace("'","\\'",$title_field_selection_table))."')";
 			}
 			else
 			{
-				$field .= $this->protect_identifiers($selection_table.'.'.$title_field_selection_table);
+				$field .= "$selection_table.$title_field_selection_table";
 			}
 
 			//Sorry Codeigniter but you cannot help me with the subquery!
-			$select .= ", ".
-				$this->build_relation_n_n_subquery($field, $selection_table, $relation_table, $primary_key_alias_to_selection_table, $primary_key_selection_table, $primary_key_alias_to_this_table, $field_name);
+			$select .= ", (SELECT GROUP_CONCAT(DISTINCT $field) FROM $selection_table "
+				."LEFT JOIN $relation_table ON $relation_table.$primary_key_alias_to_selection_table = $selection_table.$primary_key_selection_table "
+				."WHERE $relation_table.$primary_key_alias_to_this_table = `{$this->table_name}`.$this_table_primary_key GROUP BY $relation_table.$primary_key_alias_to_this_table) AS $field_name";
 		}
 
 		return $select;
@@ -243,7 +243,7 @@ class Grocery_crud_model  extends CI_Model  {
 		if($related_primary_key !== false)
 		{
 			$unique_name = $this->_unique_join_name($field_name);
-			$this->build_db_join_relation($related_table, $unique_name, $related_primary_key, $field_name);
+			$this->db->join( $related_table.' as '.$unique_name , "$unique_name.$related_primary_key = {$this->table_name}.$field_name",'left');
 
 			$this->relation[$field_name] = array($field_name , $related_table , $related_field_title);
 
@@ -336,13 +336,7 @@ class Grocery_crud_model  extends CI_Model  {
 		if($use_template)
 		{
 			$related_field_title = str_replace(" ", "&nbsp;", $related_field_title);
-			$select .= $this->build_concat_from_template(
-				$related_field_title,
-				$this->ESCAPE_CHAR,
-				$this->ESCAPE_CHAR,
-				$this->protect_identifiers($field_name_hash)
-			);
-			//$select .= "CONCAT('".str_replace(array('{','}'),array("',COALESCE(",", ''),'"),str_replace("'","\\'",$related_field_title))."') as $field_name_hash";
+			$select .= "CONCAT('".str_replace(array('{','}'),array("',COALESCE(",", ''),'"),str_replace("'","\\'",$related_field_title))."') as $field_name_hash";
 		}
 		else
 		{
@@ -519,6 +513,7 @@ class Grocery_crud_model  extends CI_Model  {
 		if($primary_key_field === false)
 			return false;
 
+		$this->db->limit(1);
 		$this->db->delete($this->table_name,array( $primary_key_field => $primary_key_value));
 		if( $this->db->affected_rows() != 1)
 			return false;
