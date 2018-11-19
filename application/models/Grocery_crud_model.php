@@ -77,17 +77,23 @@ class Grocery_crud_model  extends CI_Model  {
     	}
 
     	//set_relation_n_n special queries. We prefer sub queries from a simple join for the relation_n_n as it is faster and more stable on big tables.
-    	if(!empty($this->relation_n_n))
-    	{
+		//set_relation_n_n special queries. We prefer sub queries from a simple join for the relation_n_n as it is faster and more stable on big tables.
+		if(!empty($this->relation_n_n))
+		{
 			$select = $this->relation_n_n_queries($select);
-    	}
+		}
 
-    	$this->db->select($select, false);
+		$this->db->select($select, false);
 
-    	$results = $this->db->get($this->table_name)->result();
+		$results = $this->db->get($this->table_name)->result();
 
-    	return $results;
-    }
+		// add information from additional_fields
+		for($i=0; $i<count($results); $i++){
+			foreach($additional_fields as $alias=>$real_field){
+				$results[$i]->{$alias} = $results[$i]->{$real_field};
+			}
+		}    	return $results;
+	}
 
     public function get_row($table_name = null)
     {
