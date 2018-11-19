@@ -243,7 +243,7 @@ class Grocery_crud_model  extends CI_Model  {
 		if($related_primary_key !== false)
 		{
 			$unique_name = $this->_unique_join_name($field_name);
-			$this->db->join( $related_table.' as '.$unique_name , "$unique_name.$related_primary_key = {$this->table_name}.$field_name",'left');
+			$this->build_db_join_relation($related_table, $unique_name, $related_primary_key, $field_name);
 
 			$this->relation[$field_name] = array($field_name , $related_table , $related_field_title);
 
