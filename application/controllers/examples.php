@@ -116,8 +116,9 @@ class Examples extends CI_Controller {
 
 			$crud->set_table('products');
 			$crud->set_subject('Product');
+		    $output = $crud->render();
 
-
+		    $this->_example_output($output);
 
 
 
