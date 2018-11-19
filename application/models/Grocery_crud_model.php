@@ -433,7 +433,7 @@ class Grocery_crud_model  extends CI_Model  {
     function get_field_types_basic_table()
     {
     	$db_field_types = array();
-    	foreach($this->db->query("SHOW COLUMNS FROM {$this->table_name}")->result() as $db_field_type)
+    	foreach($this->db->query("SELECT * FROM `{$this->table_name}`  WHERE false ")->result() as $db_field_type)
     	{
     		$type = explode("(",$db_field_type->Type);
     		$db_type = $type[0];
