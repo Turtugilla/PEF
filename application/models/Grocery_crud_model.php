@@ -45,38 +45,49 @@ class Grocery_crud_model  extends CI_Model  {
     	return $this->db->table_exists($table_name);
     }
 
-    function get_list()
-    {
-    	if($this->table_name === null)
-    		return false;
+	function get_list()
+	{
+		if($this->table_name === null)
+			return false;
 
-    	$select = "`{$this->table_name}`.*";
+		$select = $this->protect_identifiers("{$this->table_name}").".*";
 
-    	//set_relation special queries
-    	if(!empty($this->relation))
-    	{
-    		foreach($this->relation as $relation)
-    		{
-    			list($field_name , $related_table , $related_field_title) = $relation;
-    			$unique_join_name = $this->_unique_join_name($field_name);
-    			$unique_field_name = $this->_unique_field_name($field_name);
+		// this variable is used to save table.column info since postgresql doesn't support "AS 'table.column'" syntax
+		$additional_fields = array();
+		//set_relation special queries
+		if(!empty($this->relation))
+		{
+			foreach($this->relation as $relation)
+			{
+				list($field_name , $related_table , $related_field_title) = $relation;
+				$unique_join_name = $this->_unique_join_name($field_name);
+				$unique_field_name = $this->_unique_field_name($field_name);
 
 				if(strstr($related_field_title,'{'))
 				{
 					$related_field_title = str_replace(" ","&nbsp;",$related_field_title);
-    				$select .= ", CONCAT('".str_replace(array('{','}'),array("',COALESCE({$unique_join_name}.",", ''),'"),str_replace("'","\\'",$related_field_title))."') as $unique_field_name";
+					$select .= ", ".$this->build_concat_from_template(
+							$related_field_title,
+							$this->protect_identifiers($unique_join_name).".".$this->ESCAPE_CHAR,
+							$this->ESCAPE_CHAR,
+							$this->protect_identifiers($unique_field_name)
+						);
+					//$select .= ", CONCAT('".str_replace(array('{','}'),array("',COALESCE(".$this->protect_identifiers($unique_join_name).".".$this->ESCAPE_CHAR, $this->ESCAPE_CHAR.", ''),'"),str_replace("'","\\'",$related_field_title))."') as ".$this->protect_identifiers($unique_field_name);
 				}
-    			else
-    			{
-    				$select .= ", $unique_join_name.$related_field_title AS $unique_field_name";
-    			}
+				else
+				{
+					$select .= ', ' . $this->protect_identifiers($unique_join_name. '.'. $related_field_title).' AS '. $this->protect_identifiers($unique_field_name);
+				}
 
-    			if($this->field_exists($related_field_title))
-    				$select .= ", `{$this->table_name}`.$related_field_title AS '{$this->table_name}.$related_field_title'";
-    		}
-    	}
+				if($this->field_exists($related_field_title)){
+					$additional_fields[$this->table_name. '.'. $related_field_title] = $related_field_title;
+					// this syntax doesn't work on postgresql
+					//$select .= ', '.$this->protect_identifiers($this->table_name. '.'. $related_field_title).' AS \''.$this->table_name. '.'. $related_field_title.'\'';
+				}
 
-    	//set_relation_n_n special queries. We prefer sub queries from a simple join for the relation_n_n as it is faster and more stable on big tables.
+			}
+		}
+
 		//set_relation_n_n special queries. We prefer sub queries from a simple join for the relation_n_n as it is faster and more stable on big tables.
 		if(!empty($this->relation_n_n))
 		{
@@ -92,7 +103,9 @@ class Grocery_crud_model  extends CI_Model  {
 			foreach($additional_fields as $alias=>$real_field){
 				$results[$i]->{$alias} = $results[$i]->{$real_field};
 			}
-		}    	return $results;
+		}
+
+		return $results;
 	}
 
     public function get_row($table_name = null)
