@@ -429,7 +429,7 @@ class Grocery_crud_model  extends CI_Model  {
     	$this->db->where($field_info->primary_key_alias_to_this_table, $main_primary_key);
     	$this->db->delete($field_info->relation_table);
     }
-
+/*
     function get_field_types_basic_table()
     {
     	$db_field_types = array();
@@ -469,7 +469,7 @@ class Grocery_crud_model  extends CI_Model  {
 
     	return $results;
     }
-
+*/
     function get_field_types($table_name)
     {
     	$results = $this->db->field_data($table_name);
