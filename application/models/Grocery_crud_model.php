@@ -45,6 +45,11 @@ class Grocery_crud_model  extends CI_Model  {
     	return $this->db->table_exists($table_name);
     }
 
+	public function protect_identifiers($value)
+	{
+		return $this->db->protect_identifiers($value);
+	}
+
 	function get_list()
 	{
 		if($this->table_name === null)
