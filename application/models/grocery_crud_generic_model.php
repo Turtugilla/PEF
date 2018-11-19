@@ -1,5 +1,5 @@
 <?php
-class grocery_CRUD_Generic_Model  extends Grocery_crud_model  {
+class grocery_crud_generic_Model  extends Grocery_crud_model  {
 
     public $ESCAPE_CHAR = '"';
     public $CAPABLE_CONCAT = TRUE;
