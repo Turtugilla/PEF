@@ -14,10 +14,13 @@ $query = "INSERT INTO users (fname, lname, address, city, pin, email , password)
 
 
 if(pg_query($db_connection, $query)){
-echo 'Data inserted';
-echo '<br/>';
+    echo 'Data inserted';
+    echo '<br/>';
+	header ("location:login.php");
+}else{
+	echo 'Error al registrarte';
 }
 
-header ("location:login.php");
+
 
 ?>
