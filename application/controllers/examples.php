@@ -117,7 +117,7 @@ class Examples extends CI_Controller {
 			$this->_example_output($output);
 	}
 
-	public function products_management()
+	public function producasdasts_management()
 	{
 			$crud = $this->new_crud();
 
