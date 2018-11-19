@@ -100,7 +100,7 @@ class Examples extends CI_Controller {
 			$crud = $this->new_crud();
 			$crud->set_table('orders');
 			$crud->set_subject('Order');
-
+		    $crud->set_primary_key('id');
 
 			$output = $crud->render();
 
@@ -113,8 +113,7 @@ class Examples extends CI_Controller {
 
 			$crud->set_table('products');
 			$crud->set_subject('Product');
-		    $crud->unset_add();
-	     	$crud->unset_delete();
+		    $crud->set_primary_key('id');
 		    $output = $crud->render();
 
 		    $this->_example_output($output);
