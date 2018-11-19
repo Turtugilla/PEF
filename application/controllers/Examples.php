@@ -12,15 +12,15 @@ class Examples extends CI_Controller {
 
     public function new_crud(){
         $db_driver = $this->db->platform();
-        $model_name = 'grocery_crud_model_'.$db_driver;
+        $model_name = 'grocery_crud_model_postgre';
         $model_alias = 'm'.substr(md5(rand()), 0, rand(4,15) );
 
         unset($this->{$model_name});
         $this->load->library('grocery_CRUD');
         $crud = new Grocery_CRUD();
         if (file_exists(APPPATH.'/models/'.$model_name.'.php')){
-            $this->load->model('grocery_crud_model');
-            $this->load->model('grocery_crud_generic_model');
+            $this->load->model('Grocery_crud_model');
+            $this->load->model('Grocery_crud_generic_model');
             $this->load->model($model_name,$model_alias);
             $crud->basic_model = $this->{$model_alias};
         }
@@ -65,23 +65,16 @@ class Examples extends CI_Controller {
 		}
 	}
 
-	public function employees_management()
+	public function users_management()
 	{
-			$crud = $this->new_crud();
+		$crud = new grocery_CRUD();
 
-			$crud->set_theme('datatables');
-			$crud->set_table('employees');
-			$crud->set_relation('officeCode','offices','city');
-			$crud->display_as('officeCode','Office City');
-			$crud->set_subject('Employee');
+		$crud->set_table('users');
+		$crud->set_subject('User');
 
-			$crud->required_fields('lastName');
+		$output = $crud->render();
 
-			$crud->set_field_upload('file_url','assets/uploads/files');
-
-			$output = $crud->render();
-
-			$this->_example_output($output);
+		$this->_example_output($output);
 	}
 
 	public function customers_management()
@@ -123,12 +116,11 @@ class Examples extends CI_Controller {
 
 			$crud->set_table('products');
 			$crud->set_subject('Product');
-			
 
 
-			$output = $crud->render();
 
-			$this->_example_output($output);
+
+
 	}
 
 	public function valueToEuro($value, $row)
