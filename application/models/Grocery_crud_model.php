@@ -513,7 +513,6 @@ class Grocery_crud_model  extends CI_Model  {
 		if($primary_key_field === false)
 			return false;
 
-		$this->db->limit(1);
 		$this->db->delete($this->table_name,array( $primary_key_field => $primary_key_value));
 		if( $this->db->affected_rows() != 1)
 			return false;
