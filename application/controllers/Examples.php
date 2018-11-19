@@ -20,7 +20,7 @@ class Examples extends CI_Controller {
         $crud = new Grocery_CRUD();
         if (file_exists(APPPATH.'/models/'.$model_name.'.php')){
             $this->load->model('Grocery_crud_model');
-            $this->load->model('Grocery_crud_generic_model');
+            $this->load->model('grocery_crud_generic_model');
             $this->load->model($model_name,$model_alias);
             $crud->basic_model = $this->{$model_alias};
         }
