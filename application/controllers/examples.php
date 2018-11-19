@@ -71,6 +71,7 @@ class Examples extends CI_Controller {
 
 		$crud->set_table('users');
 		$crud->set_subject('User');
+		$crud->set_primary_key('id');
 
 		$output = $crud->render();
 
