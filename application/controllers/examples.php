@@ -67,7 +67,7 @@ class Examples extends CI_Controller {
 
 	public function users_management()
 	{
-		$crud = new grocery_CRUD();
+		$crud = $this->new_crud();
 
 		$crud->set_table('users');
 		$crud->set_subject('User');
