@@ -143,17 +143,17 @@ class Grocery_crud_model  extends CI_Model  {
 			if($use_template)
 			{
 				$title_field_selection_table = str_replace(" ", "&nbsp;", $title_field_selection_table);
-				$field .= "CONCAT('".str_replace(array('{','}'),array("',COALESCE(",", ''),'"),str_replace("'","\\'",$title_field_selection_table))."')";
+				$field .= $this->build_concat_from_template($this->protect_identifiers($title_field_selection_table));
+				//$field .= "CONCAT('".str_replace(array('{','}'),array("',COALESCE(",", ''),'"),str_replace("'","\\'",$this->protect_identifiers($title_field_selection_table)))."')";
 			}
 			else
 			{
-				$field .= "$selection_table.$title_field_selection_table";
+				$field .= $this->protect_identifiers($selection_table.'.'.$title_field_selection_table);
 			}
 
 			//Sorry Codeigniter but you cannot help me with the subquery!
-			$select .= ", (SELECT GROUP_CONCAT(DISTINCT $field) FROM $selection_table "
-				."LEFT JOIN $relation_table ON $relation_table.$primary_key_alias_to_selection_table = $selection_table.$primary_key_selection_table "
-				."WHERE $relation_table.$primary_key_alias_to_this_table = `{$this->table_name}`.$this_table_primary_key GROUP BY $relation_table.$primary_key_alias_to_this_table) AS $field_name";
+			$select .= ", ".
+				$this->build_relation_n_n_subquery($field, $selection_table, $relation_table, $primary_key_alias_to_selection_table, $primary_key_selection_table, $primary_key_alias_to_this_table, $field_name);
 		}
 
 		return $select;
