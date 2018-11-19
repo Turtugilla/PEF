@@ -126,7 +126,7 @@ class Examples extends CI_Controller {
 
 
 
-			$output = $crud->render();
+			
 
 			$this->_example_output($output);
 	}
