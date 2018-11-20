@@ -12,6 +12,7 @@ function postTOBank(){
 		data: miCuentaBancaria,
 		contentType: 'json',
 		success: function(data){
+			console.log("testing");
 			console.log(data);
 		}
 	});
