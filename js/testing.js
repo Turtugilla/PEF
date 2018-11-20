@@ -3,7 +3,7 @@ function postTOBank(){
 		 ctaorigen : "1445522",
 		 ctadestino : "1442233",
 		 monto : 200,
-		 detalle : "detalle"
+		 detalle : "las tortugas son verdes"
 	};
 
     $.ajax({
