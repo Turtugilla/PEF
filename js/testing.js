@@ -10,7 +10,10 @@ function postTOBank(){
 		type: 'POST',
 		url: "https://spbank.herokuapp.com/api/payment",
 		data: miCuentaBancaria,
-		contentType: 'json',
+		contentType: 'jsonp',
+		headers: {
+			'Access-Control-Allow-Origin': '*'
+		},
 		success: function(data){
 			console.log("testing");
 			console.log(data);
