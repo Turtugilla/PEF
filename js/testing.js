@@ -11,12 +11,13 @@ function postTOBank(){
 		url: "https://spbank.herokuapp.com/api/payment",
 		data: miCuentaBancaria,
 		contentType: 'jsonp',
+		crossDomain: true,
 		headers: {
 			'Access-Control-Allow-Origin': '*'
 		},
-		success: function(data){
+		success: function(response){
 			console.log("testing");
-			console.log(data);
+			console.log(response);
 		}
 	});
 }
