@@ -4,7 +4,7 @@
 
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
-if(!isset($_SESSION["username"])) {
+if(!isset($_SESSION["email"])) {
   echo '<h1>Invalid Login! Redirecting...</h1>';
   header("Refresh: 3; url=inicio.php");
 }

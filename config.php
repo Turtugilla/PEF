@@ -9,4 +9,5 @@ $db_port = '5432';
 
 $db_connection = pg_connect("host=".$db_host." dbname=".$db_name.
 	" user=".$db_username." password=".$db_password);
+
 ?>
