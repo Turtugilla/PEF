@@ -11,7 +11,7 @@ function postTOBank(){
 		url: "https://spbank.herokuapp.com/api/payment",
 		data: miCuentaBancaria,
 		contentType: 'json',
-		crossDomain: true,
+		//crossDomain: true,
 		/*headers: {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Headers': '*',
