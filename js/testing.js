@@ -13,7 +13,9 @@ function postTOBank(){
 		contentType: 'jsonp',
 		crossDomain: true,
 		headers: {
-			'Access-Control-Allow-Origin': '*'
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Headers': '*',
+			'Access-Control-Allow-Methods': '*'
 		},
 		success: function(response){
 			console.log("testing");
