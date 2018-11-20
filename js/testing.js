@@ -1,9 +1,9 @@
 function postTOBank(){
 	var miCuentaBancaria = {
-		 ctaorigen : "1445522",
-		 ctadestino : "1442233",
-		 monto : 200,
-		 detalle : "las tortugas son verdes"
+		 "ctaorigen" : "1445522",
+		 "ctadestino" : "1442233",
+		 "monto" : 200,
+		 "detalle" : "las tortugas son verdes"
 	};
 
     $.ajax({
