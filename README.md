@@ -1,3 +1,11 @@
+
+<h1>Esta es la página web del proyecto final de rendimiento en sistemas</h1>
+
+IDE utilizado: PHPStorm
+Esta hosteado en: heroku
+
+
+
 Grocery CRUD Database Models
 =============================
 This is an extension of grocery CRUD databases to include all the databases that Codeigniter Supports.
