@@ -12,8 +12,8 @@ $action = $_GET['action'];
 if($action === 'empty')
   unset($_SESSION['cart']);
 
-$result = $mysqli->query("SELECT qty FROM products WHERE id = ".$product_id);
-
+$result = pg_query($db_connection ,
+	'SELECT qty FROM products WHERE id = \".$product_id');
 
 if($result){
 
@@ -32,13 +32,9 @@ if($result){
         unset($_SESSION['cart'][$product_id]);
         break;
 
-
-
     }
   }
 }
-
-
 
 header("location:cart.php");
 
