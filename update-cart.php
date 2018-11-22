@@ -13,7 +13,7 @@ if($action === 'empty')
   unset($_SESSION['cart']);
 
 $result = pg_query($db_connection ,
-	'SELECT qty FROM products WHERE id = \".$product_id');
+	'SELECT qty FROM products WHERE id = .$product_id');
 
 if($result){
 
