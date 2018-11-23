@@ -20,8 +20,8 @@ if(isset($_SESSION['cart'])) {
         $date = date('Y-m-d H:i:s');
         $id = $_SESSION["id"];
         $price = $array['price'];
-        $insert ="INSERT INTO orders  (price, units, total, date, 'idProduct', 'idUsuario')
-					VALUES($price, $quantity , $cost,'2017-03-14',1 ,1 )";
+        $insert ="INSERT INTO orders  (price, units, total, date, idproduct, idusuario)
+					VALUES('$price', '$quantity' , '$cost','2017-03-14',1 ,1 )";
 
         $query = pg_query($db_connection, $insert);
 
