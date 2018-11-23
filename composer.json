@@ -2,7 +2,7 @@
   "require": {
 	"phpmailer/phpmailer": "^6.0",
 	"php": ">=5.3.7",
-	"ext-mbstring": "*"
+	"ext-mbstring": "^7.2"
   },
   "description": "The CodeIgniter framework",
   "name": "codeigniter/framework",
@@ -29,7 +29,3 @@
 	}
   }
 }
-
-
-
-
