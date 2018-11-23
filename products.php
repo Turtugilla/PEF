@@ -119,7 +119,7 @@ include 'config.php';
                 <h2>Productos</h2>
             </div>
         </div>
-        <div class="row" >
+
 			<?php
                  $result = pg_query($db_connection,"SELECT * FROM products");
 
@@ -180,7 +180,7 @@ include 'config.php';
              ?>
 
 
-        </div>
+       
     </div>
 </div><!-- recent projects -->
 
