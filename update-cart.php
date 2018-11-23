@@ -14,13 +14,11 @@ if($action === 'empty')
 
 $result = pg_query($db_connection ,
 	"SELECT qty FROM products WHERE id =" .$product_id);
+$resultArr = pg_fetch_all($result);
+
 
 if($result){
-
-  if($obj = $result->fetch_object()) {
-
     switch($action) {
-
       case "add":
       if($_SESSION['cart'][$product_id]+1 <= $obj->qty)
         $_SESSION['cart'][$product_id]++;
@@ -33,7 +31,6 @@ if($result){
         break;
 
     }
-  }
 }
 
 header("location:cart.php");
