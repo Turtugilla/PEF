@@ -103,14 +103,43 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
           </nav><!-- navbar -->
       </div><!-- main menu -->
   </header><!-- Header -->
+	  
+<!-- Slideshow -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="../images/slideshow/avicola1.png" alt="Los Angeles">
+    </div>
 
-      
-<!--
-    <img data-interchange="[images/bolt-retina.jpg, (retina)], [images/bolt-landscape.jpg, (large)], [images/bolt-mobile.jpg, (mobile)], [images/bolt-landscape.jpg, (medium)]">
-    <noscript><img src="images/bolt-landscape.jpg"></noscript>
--->
+    <div class="item">
+      <img src="../images/slideshow/avicola2.jpg" alt="Chicago">
+    </div>
 
+    <div class="item">
+      <img src="../images/slideshow/avicola3.jpg" alt="New York">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+	<!-- Termina slideshow -->
+	  
   <div class="home-section image-bg">
       <div class="overlay"></div>
       <div class="home-content">
