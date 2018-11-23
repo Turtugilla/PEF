@@ -10,25 +10,24 @@ if(isset($_SESSION['cart'])) {
 
   foreach($_SESSION['cart'] as $product_id => $quantity) {
 
-    $result = $mysqli->query("SELECT * FROM products WHERE id = ".$product_id);
+    $result = pg_query($db_connection, "SELECT * FROM products WHERE id=". $product_id);
+
+    $array = pg_fetch_array($result);
 
     if($result){
 
-      if($obj = $result->fetch_object()) {
-
-
-        $cost = $obj->price * $quantity;
+        $cost = $array['price'] * $quantity;
         $date = date('Y-m-d H:i:s');
         $id = $_SESSION["id"];
 
-        $query = $mysqli->query("INSERT INTO orders (dateposted) (price, units, total, date, idUsuario, idProduct) 
-           VALUES('$obj->price', $quantity, $cost ,$date, $quantity,1 ,$id)");
+        $query = pg_query($db_connection,
+			"INSERT INTO orders (dateposted) (price, units, total, date, idUsuario, idProduct)
+					VALUES('$obj->price', $quantity, $cost ,$date, $quantity,1 ,$id)");
 
         if($query){
           $newqty = $obj->qty - $quantity;
-          if($mysqli->query("UPDATE products SET qty = ".$newqty." WHERE id = ".$product_id)){
-
-          }
+          pg_query($db_connection,"UPDATE products SET qty = ". $newqty." 
+          WHERE id = ". $product_id);
         }
 
         //send mail script
@@ -59,11 +58,9 @@ if(isset($_SESSION['cart'])) {
           }
         }*/
 
-
-
       }
     }
-  }
+
 }
 
 unset($_SESSION['cart']);
