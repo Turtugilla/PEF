@@ -19,10 +19,11 @@ if(isset($_SESSION['cart'])) {
         $cost = $array['price'] * $quantity;
         $date = date('Y-m-d H:i:s');
         $id = $_SESSION["id"];
+        $price = $array['price'];
 
         $query = pg_query($db_connection,
 			"INSERT INTO orders  (price, units, total, date, idProduct, idUsuario)
-					VALUES( ". $array['price'] . ", '$quantity' , '$cost','2017-03-14',1 ,1 )");
+					VALUES( $price, $quantity , $cost,'2017-03-14',1 ,1 )");
 
         if($query){
           $newqty = $array['qty'] - $quantity;
