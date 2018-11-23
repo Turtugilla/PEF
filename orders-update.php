@@ -21,7 +21,7 @@ if(isset($_SESSION['cart'])) {
         $id = $_SESSION["id"];
 
         $query = pg_query($db_connection,
-			"INSERT INTO orders (dateposted) (price, units, total, date, idUsuario, idProduct)
+			"INSERT INTO orders  (price, units, total, date, idUsuario, idProduct)
 					VALUES( " .$array['price'] .", $quantity, $cost ,$date, $quantity,1 ,$id)");
 
         if($query){
