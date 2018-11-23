@@ -22,7 +22,7 @@ if(isset($_SESSION['cart'])) {
 
         $query = pg_query($db_connection,
 			"INSERT INTO orders  (price, units, total, date, idUsuario, idProduct)
-					VALUES( " .$array['price'] .", $quantity, $cost ,$date, $quantity,1 ,$id)");
+					VALUES( " .$array['price'] .", $quantity, $cost ,'2017-03-14', $quantity,1 ,$id)");
 
         if($query){
           $newqty = $obj->qty - $quantity;
