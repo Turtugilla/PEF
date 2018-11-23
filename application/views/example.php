@@ -23,6 +23,7 @@
 			<a href='<?php echo site_url('examples/orders_management')?>'>Orders</a> |
 			<a href='<?php echo site_url('examples/products_management')?>'>Products</a> |
 			<a href='<?php echo site_url('examples/multigrids')?>'>Multigrid [BETA]</a>
+			<a href='<?php echo site_url('https://pollitosenfuga.herokuapp.com/inicio.php')?>'>Multigrid [BETA]</a>
 		</div>
 		<?php foreach($js_files as $file): ?>
 			<script src="<?php echo $file; ?>"></script>
