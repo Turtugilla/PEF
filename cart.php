@@ -122,18 +122,21 @@ include "config.php";
             echo '</tr>';
             foreach($_SESSION['cart'] as $product_id => $quantity) {
 
-            $result = $mysqli->query("SELECT product_code, product_name, product_desc, qty, price FROM products WHERE id = ".$product_id);
+            $result = pg_query($db_connection,
+				"SELECT product_code, product_name, product_desc, qty, price FROM products
+                       WHERE id = ".$product_id);
 
+            $resultArr = pg_fetch_all($result);
 
             if($result){
 
-              while($obj = $result->fetch_object()) {
-                $cost = $obj->price * $quantity; //work out the line cost
+              foreach($resultArr as $array){
+                $cost = $array['price'] * $quantity; //work out the line cost
                 $total = $total + $cost; //add to the total cost
 
                 echo '<tr>';
-                echo '<td>'.$obj->product_code.'</td>';
-                echo '<td>'.$obj->product_name.'</td>';
+                echo '<td>'. $array["product_code"] .'</td>';
+                echo '<td>'. $array["product_name"] .'</td>';
                 echo '<td>'.$quantity.'&nbsp;<a class="button [secondary success alert]" style="padding:5px;" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="button alert" style="padding:5px;" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
                 echo '<td>'.$cost.'</td>';
                 echo '</tr>';
