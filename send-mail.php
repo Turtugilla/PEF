@@ -39,7 +39,7 @@ $mail->Password = 'tigres100%';
 $mail->CharSet = 'UTF-8';
 $mail->setFrom($emailFrom , $nombre);
 //$mail->addAddress("angel.ygtp@gmail.com","Angel Acosta");
-$mail->AddAddress("dleonmxn@gmail.com","Pedro de León");
+$mail->AddAddress("angel.ygtp@gmail.com","Angel Acosta");
 $mail->Subject = $subject;
 $mail->Body =  $mensaje;
 $mail->send();
