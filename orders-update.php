@@ -3,7 +3,7 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 include 'config.php';
-
+require 'vendor/autoload.php';
 if(isset($_SESSION['cart'])) {
 
   $total = 0;
