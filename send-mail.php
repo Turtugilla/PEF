@@ -45,12 +45,24 @@ $mail->Body =  $mensaje;
 $mail->send();
 
 
-$sendgrid = new SendGrid("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");
-$email    = new SendGrid\Mail\Mail($email,"app115927986@heroku.com",$subject);
 
-$email->setHtml($mensaje);
-
-$sendgrid->send($email);
+$email = new \SendGrid\Mail\Mail();
+$email->setFrom("test@example.com", "Example User");
+$email->setSubject("Sending with SendGrid is Fun");
+$email->addTo("app115927986@heroku.com", "Example User");
+$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+$email->addContent(
+	"text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+);
+$sendgrid = new \SendGrid(getenv('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'));
+try {
+	$response = $sendgrid->send($email);
+	print $response->statusCode() . "\n";
+	print_r($response->headers());
+	print $response->body() . "\n";
+} catch (Exception $e) {
+	echo 'Caught exception: '. $e->getMessage() ."\n";
+}
 
 
 
