@@ -113,18 +113,19 @@ include 'config.php';
         <hr>
 
         <?php
-          $user = $_SESSION["email"];
-          $result = $mysqli->query("SELECT * from orders where email='".$user."'");
+          $email = $_SESSION["email"];
+          $result = pg_query($db_connection,"SELECT * from orders where email='".$email."'");
+          $resultArray = pg_fetch_all($result);
           if($result) {
-            while($obj = $result->fetch_object()) {
+            foreach($resultArr as $array){
               //echo '<div class="large-6">';
-              echo '<p><h4>ID de la Orden ->'.$obj->id.'</h4></p>';
-              echo '<p><strong>Fecha de compra</strong>: '.$obj->date.'</p>';
-              echo '<p><strong>Codigo de producto</strong>: '.$obj->product_code.'</p>';
-              echo '<p><strong>Nombre del producto</strong>: '.$obj->product_name.'</p>';
-              echo '<p><strong>Precio</strong>: '.$obj->price.'</p>';
-              echo '<p><strong>Cantidad</strong>: '.$obj->units.'</p>';
-              echo '<p><strong>Costo total</strong>: '.$currency.$obj->total.'</p>';
+              echo '<p><h4>ID de la Orden ->'.$array["id"].'</h4></p>';
+              echo '<p><strong>Fecha de compra</strong>: '.$array["date"].'</p>';
+              echo '<p><strong>Unidades</strong>: '.$array["total"].'</p>';
+              echo '<p><strong>Costo Total</strong>: '.$array["units"].'</p>';
+              echo '<p><strong>Producto</strong>: '.$array["idproduct"].'</p>';
+              echo '<p><strong>Usuario</strong>: '.$array["idusuario"].'</p>';
+
               //echo '</div>';
               //echo '<div class="large-6">';
               //echo '<img src="images/products/sports_band.jpg">';
