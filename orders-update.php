@@ -37,7 +37,8 @@ if(isset($_SESSION['cart'])) {
 		$email->setFrom("pedro.deleon92@outlook.com", "Pollito Mayor");
 		$email->setSubject("Orden Lista");
 		$email->addTo("pedro.deleon92@outlook.com", $nombreUsuarioLogeado);
-		$email->addContent(
+		$email->addContent("text/plain", "testing");
+		/*$email->addContent(
 			"text/html", "<strong>Tu orden fue realizada con éxito</strong><br></br>								  													  										  
 										  <p><strong>Fecha de compra</strong>: 2017-03-14</p>
 										  <p><strong>Unidades</strong>: ".$quantity."</p>
@@ -47,7 +48,7 @@ if(isset($_SESSION['cart'])) {
 										  <p><hr></p>							
 								  </div>
 								</div>"
-		);
+		);*/
 		$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 		try {
 			$response = $sendgrid->send($email);
