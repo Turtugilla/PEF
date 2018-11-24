@@ -118,13 +118,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     </div>
 </div><!-- breadcrumb-section -->
 
-
-
-<!--
-    <img data-interchange="[images/bolt-retina.jpg, (retina)], [images/bolt-landscape.jpg, (large)], [images/bolt-mobile.jpg, (mobile)], [images/bolt-landscape.jpg, (medium)]">
-    <noscript><img src="images/bolt-landscape.jpg"></noscript>
--->
-
 <div class="about-us-section section-padding">
     <div class="container">
         <div class="section-title text-center">
@@ -149,84 +142,76 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 </div><!-- features section -->
 
 </div><!-- home -->
-
 <footer class="footer">
-    <div class="contact-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="contact-widget">
+      <div class="contact-section">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-3">
+                      <div class="contact-widget">
 
-                        <img class="img-responsive" src="images/logo2.png" alt="">
+                          <img class="img-responsive" src="images/logo2.png" alt="">
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="contact-widget">
-                        <h3>Business Hours</h3>
-                        <p>Our support available to help you 24 hours a day, seven days a week.</p>
-                        <p>Monday - Thursday @ 09.00 - 17.30</p>
-                        <p>Friday & Saturday @ 10.00 - 16.00</p>
-                        <p>Sunday - <span> Closed </span></p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="contact-widget">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Latest News</a></li>
-                            <li><a href="#">Shop</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Creer</a></li>
-                            <li><a href="#">Contac Us</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="contact-widget">
-                        <h3>Our Office</h3>
-                        <address>
-                            <ul>
-                                <li><span class="address">Address:</span>1052 – 1054 Christchurch Road, Bournemouth, BH7 6DS</li>
-                                <li><span>Phone: </span>+210 2234 546 78</li>
-                                <li><span>Email: </span><a href="#">support@diagram.com</a></li>
-                            </ul>
-                        </address>
-                        <ul class="footer-social list-inline">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!-- row -->
+                          <p> </p>
+                          
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <div class="contact-widget">
+                          <h3>Horas de Trabajo</h3>
+                          <p>Soporte disponible para ayudarte 24/7.</p>
+                          <p>Lunes-Jueves @ 09.00 - 17.30</p>
+                          <p>Viernes & Sabado @ 10.00 - 16.00</p>
+                          <p>Domingo - <span> Cerrado </span></p>
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <div class="contact-widget">
+                          <h3>Enlaces rapido</h3>
+                          <ul>
+                              <li><a href="inicio.php">Inicio</a></li>
+                              <li><a href="about.php">Acerca</a></li>
+                              <li><a href="contact.php">Contacto</a></li>
+                              <li><a href="register.php">Registrarse</a></li>
+                              <li><a href="login.php">LogIn</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <div class="contact-widget">
+                          <h3>Our Office</h3>
+                          <address>
+                              <ul>
+                                  <li><span class="address">Address:</span>Carretera a Garcia Km 1.3 Parque Stiva Santa Catarina N.L., Santa Catarina, Nuevo León</li>
+                                  <li><span>Phone: </span>+210 2234 546 78</li>
+                                  <li><span>Email: </span><a href="#">facpya@gmail.com</a></li>
+                              </ul>
+                          </address>
+                          <ul class="footer-social list-inline">
+                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                              <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                              <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                              <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div><!-- row -->
 
-        </div><!-- container -->
-    </div><!-- contact informetion -->
+          </div><!-- container -->
+      </div><!-- contact informetion -->
 
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="copyright-text text-center">
-                <p>&copy; Diagram 2017 | Design & Developed By <a href="http://www.gridbootstrap.com/">GridBootstrap</a></p>
-            </div>
-        </div>
-    </div><!-- footer bottom -->
-</footer><!-- footer -->
-<script src="js/vendor/jquery.js"></script>
-<script src="js/foundation.min.js"></script>
-<script src="js/bienvenida.js"></script>
-<script>
-    $(document).foundation();
-</script>
-</body>
+      <div class="footer-bottom">
+          <div class="container">
+              <div class="copyright-text text-center">
+                  <p>&copy; Diagram 2018 </p>
+              </div>
+          </div>
+      </div><!-- footer bottom -->
+  </footer><!-- footer -->
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/bienvenida.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
 </html>
