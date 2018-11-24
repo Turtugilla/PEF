@@ -46,7 +46,7 @@ $mail->send();
 */
 
 $sendgrid = new SendGrid("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");
-$email    = new SendGrid\Email();
+$email    = new SendGrid\Mail\Mail();
 
 $email->addTo("app115927986@heroku.com")
 	->setFrom($email)
