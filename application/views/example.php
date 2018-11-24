@@ -20,7 +20,9 @@
 
 
 		<?php
-		         echo $_SESSION['email'];
+
+		         $email = $_SESSION["emial"];
+		         echo $email;
 	         			/*if(isset($_SESSION['email'])){
 
 				}
