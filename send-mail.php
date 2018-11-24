@@ -40,8 +40,9 @@ $mail->CharSet = 'UTF-8';
 $mail->setFrom($emailFrom , $nombre);
 $mail->addAddress("pedro.deleon92@outlook.com","Pedro de León");
 $mail->Subject = $subject;
-$mail->Body =  $mensaje;
+$mail->Body =  "Correo enviado por: " . $emailFrom ."<br/>".$mensaje;
 $mail->send();
+
 
 
 $email = new \SendGrid\Mail\Mail();
