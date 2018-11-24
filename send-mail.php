@@ -49,7 +49,7 @@ $sendgrid = new SendGrid("SG.eJC0d3GSRsKwmOxFgkxJXw._x3UW8Uo5uUajS6be7kWHDbs-agZ
 $email    = new SendGrid\Mail\Mail();
 
 $email->addTo("app115927986@heroku.com")
-	->setFrom($emailFrom)
+	->setFrom("dleonmxn@gmail.com")
 	->setSubject($subject)
 	->setHtml($mensaje);
 
