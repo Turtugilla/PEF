@@ -20,6 +20,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       <link rel="stylesheet" href="css/owl.carousel.css">
       <link rel="stylesheet" href="css/main.css">
       <link rel="stylesheet" href="css/responsive.css">
+      <link rel="stylesheet" href="css/slideshow.css">
 
       <!-- icons -->
       <link rel="icon" href="images/ico/favicon.ico">
@@ -105,51 +106,26 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   </header><!-- Header -->
 	  
 <!-- Slideshow -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="../images/slideshow/avicola1.png" alt="Los Angeles">
-    </div>
-
-    <div class="item">
-      <img src="../images/slideshow/avicola2.jpg" alt="Chicago">
-    </div>
-
-    <div class="item">
-      <img src="../images/slideshow/avicola3.jpg" alt="New York">
+<div> 
+    <h1 style="text-align:center">Bienvenidos</h1>
+<div class="slider-holder">
+        <span id="slider-image-1"></span>
+        <span id="slider-image-2"></span>
+        <span id="slider-image-3"></span>
+        <div class="image-holder">
+            <img src="images/slideshow/avicola1.jpg" class="slider-image" />
+            <img src="images/slideshow/avicola2.jpg" class="slider-image" />
+            <img src="images/slideshow/avicola3.png" class="slider-image" />
+        </div>
+        <div class="button-holder">
+            <a href="#slider-image-1" class="slider-change"></a>
+            <a href="#slider-image-2" class="slider-change"></a>
+            <a href="#slider-image-3" class="slider-change"></a>
+        </div>
     </div>
   </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-	<!-- Termina slideshow -->
-	
-
-              <div class="services">
-
-			  </div>
-              </div><!-- services -->
-          </div><!-- container -->
-      </div><!-- home content -->
-
-  </div><!-- home -->
-
+  <!-- Termina slideshow -->
+      
   <footer class="footer">
       <div class="contact-section">
           <div class="container">
