@@ -118,7 +118,7 @@ include 'config.php';
           $result = pg_query($db_connection,"SELECT * from orders where idusuario=". $idUsuario );
           $resultArray = pg_fetch_all($result);
           if($result) {
-            foreach($resultArr as $array){
+            foreach($resultArray as $array){
               //echo '<div class="large-6">';
               echo '<p><h4>ID de la Orden ->'.$array["id"].'</h4></p>';
               echo '<p><strong>Fecha de compra</strong>: '.$array["date"].'</p>';
