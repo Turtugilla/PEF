@@ -113,7 +113,7 @@ include 'config.php';
         <hr>
 
         <?php
-          $user = $_SESSION["username"];
+          $user = $_SESSION["email"];
           $result = $mysqli->query("SELECT * from orders where email='".$user."'");
           if($result) {
             while($obj = $result->fetch_object()) {
