@@ -11,13 +11,14 @@
 	<?php endforeach; ?>
 
 	<?php
-	if(isset($_SESSION['email'])){
+				if(isset($_SESSION['email'])){
 
-	}else{
-		header("Location: https://pollitosenfuga.herokuapp.com/inicio.php");
-		die();
-	}
+				}
+				else{
+				   echo "Entrada Prohibida";
+				}
 	?>
+
 
 </head>
 
