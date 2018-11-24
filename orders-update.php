@@ -29,7 +29,7 @@ if(isset($_SESSION['cart'])) {
 
         $price = $array['price'];
         $insert ="INSERT INTO orders  (price, units, total, date, idproduct, idusuario)
-					VALUES($price, $quantity , $cost,'2017-03-14',$product_id ,$idUsuario)";
+					VALUES($price, $quantity , $cost,$date,$product_id ,$idUsuario)";
 
         $query = pg_query($db_connection, $insert);
 
@@ -37,10 +37,9 @@ if(isset($_SESSION['cart'])) {
 		$email->setFrom("pedro.deleon92@outlook.com", "Pollito Mayor");
 		$email->setSubject("Orden Lista");
 		$email->addTo("pedro.deleon92@outlook.com", $nombreUsuarioLogeado);
-		$email->addContent("text/plain", "testing");
-		/*$email->addContent(
+		$email->addContent(
 			"text/html", "<strong>Tu orden fue realizada con éxito</strong><br></br>								  													  										  
-										  <p><strong>Fecha de compra</strong>: 2017-03-14</p>
+										  <p><strong>Fecha de compra</strong>: ".$date."</p>
 										  <p><strong>Unidades</strong>: ".$quantity."</p>
 										  <p><strong>Costo Total</strong>: ".$cost."</p>
 										  <p><strong>Producto</strong>: ". $product_id ."</p>
@@ -48,7 +47,7 @@ if(isset($_SESSION['cart'])) {
 										  <p><hr></p>							
 								  </div>
 								</div>"
-		);*/
+		);
 		$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 		try {
 			$response = $sendgrid->send($email);
@@ -99,6 +98,6 @@ if(isset($_SESSION['cart'])) {
 }
 
 unset($_SESSION['cart']);
-//header("location:success.php");
+header("location:success.php");
 
 ?>
