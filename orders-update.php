@@ -35,7 +35,7 @@ if(isset($_SESSION['cart'])) {
 
 		$email = new \SendGrid\Mail\Mail();
 		$email->setFrom("pedro.deleon92@outlook.com", "Pollito Mayor");
-		$email->setSubject($subject);
+		$email->setSubject("Orden Lista");
 		$email->addTo("pedro.deleon92@outlook.com", $nombreUsuarioLogeado);
 		$email->addContent(
 			"text/html", "<strong>Tu orden fue realizada con éxito</strong><br></br>								  													  										  
