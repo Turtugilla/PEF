@@ -23,20 +23,8 @@ foreach( $valorHuevos as $huevo ) {
 
          }
 
-  echo json_encode($array);
-
+  echo $array;
 
 
 ?>
 
-
-
-
-
-
-
-
-
-//$act =  + $huevo["cantidad"];
-//
-//$result2 = pg_query($pg_conn, "UPDATE pastel SET cantidad=".$act." WHERE codigo_pastel=".$pastel["codigo_pastel"]);
