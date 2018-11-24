@@ -21,7 +21,7 @@ $mensaje = $_POST["mensaje"];
 
 
 
-/*
+
 $mail= new PHPMailer();
 
 $mail->isSMTP();
@@ -30,8 +30,7 @@ $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'tls';
 
-En estas dos siguientes lineas va el código de las credenciales de email que
- va hostear el enviar mensajes por correo electrónico
+
 $mail->Username = 'dleonmxn@gmail.com';
 $mail->Password = 'tigres100%';
 
@@ -39,12 +38,11 @@ $mail->Password = 'tigres100%';
 
 $mail->CharSet = 'UTF-8';
 $mail->setFrom($emailFrom , $nombre);
-$mail->addAddress("dleonmxn@gmail.com","Angel Acosta");
+$mail->addAddress("dleonmxn@gmail.com","Pedro de León");
 $mail->Subject = $subject;
 $mail->Body =  $mensaje;
 $mail->send();
 
-*/
 
 $email = new \SendGrid\Mail\Mail();
 $email->setFrom("dleonmxn@hotmail.com", "Example User");
