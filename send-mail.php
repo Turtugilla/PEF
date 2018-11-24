@@ -47,14 +47,14 @@ $mail->send();
 
 
 $email = new \SendGrid\Mail\Mail();
-$email->setFrom("test@example.com", "Example User");
+$email->setFrom("dleonmxn@hotmail.com", "Example User");
 $email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("pedro.deleon92@outlook.com", "Example User");
+$email->addTo("app115927986@heroku.com", "Example User");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
 	"text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
 );
-$sendgrid = new \SendGrid(getenv('eJC0d3GSRsKwmOxFgkxJXw'));
+$sendgrid = new \SendGrid(getenv('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'));
 try {
 	$response = $sendgrid->send($email);
 	print $response->statusCode() . "\n";
