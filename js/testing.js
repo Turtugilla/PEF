@@ -3,7 +3,7 @@ function postTOBank(monto,detalle){
 
     $.ajax({
 		type: 'POST',
-		url: "https://pollitosenfuga.herokuapp.com/orders-updte.php",
+		url: "https://pollitosenfuga.herokuapp.com/orders-update.php",
 		
 		//crossDomain: true,
 		/*headers: {
