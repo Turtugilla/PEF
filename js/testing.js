@@ -10,7 +10,9 @@ function postTOBank(monto,detalle){
 		type: 'POST',
 		url: "https://spbank.herokuapp.com/api/payment",
 		data: miCuentaBancaria,
-		contentType: 'json',
+		contentType: false,
+	        cache: false,
+	        processData: false,
 		//crossDomain: true,
 		/*headers: {
 			'Access-Control-Allow-Origin': '*',
