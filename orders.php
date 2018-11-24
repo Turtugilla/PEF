@@ -115,7 +115,7 @@ include 'config.php';
         <?php
           $email = $_SESSION["email"];
           $idUsuario = $_SESSION['id'];
-          $result = pg_query($db_connection,"SELECT * from orders where idUsuario='".$idUsuario."'");
+          $result = pg_query($db_connection,"SELECT * from orders where idusuario=". $idUsuario );
           $resultArray = pg_fetch_all($result);
           if($result) {
             foreach($resultArr as $array){
