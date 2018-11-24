@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-$email = $_POST["email"];
+$emailFrom = $_POST["email"];
 $nombre = $_POST["nombre"];
 $subject = $_POST["tema"];
 $mensaje = $_POST["mensaje"];
@@ -49,7 +49,7 @@ $sendgrid = new SendGrid("SG.eJC0d3GSRsKwmOxFgkxJXw._x3UW8Uo5uUajS6be7kWHDbs-agZ
 $email    = new SendGrid\Mail\Mail();
 
 $email->addTo("app115927986@heroku.com")
-	->setFrom($email)
+	->setFrom($emailFrom)
 	->setSubject($subject)
 	->setHtml($mensaje);
 
