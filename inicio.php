@@ -41,14 +41,14 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                           <i class="fa fa-envelope"></i>
                           <div class="info-text">
                               <h5>Correo electrónico:</h5>
-                              <a href="mailto:cofee@diagram.com">cofee@diagram.com</a>
+                              <a href="mailto:facpya@gmail.com">facpya@gmail.com</a>
                           </div>
                       </div>
                       <div class="info-box">
                           <i class="fa fa-phone"></i>
                           <div class="info-text">
                               <h5>Teléfono:</h5>
-                              <span>+121 2134345678</span>
+                              <span>+21 34345678</span>
                           </div>
                       </div>
                       <div class="info-box">
@@ -77,7 +77,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                           <span class="icon-bar"></span>
                           <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="index.html"><img class="img-responsive" src="images/copamex.png" alt="Logo"></a>
+                      <a class="navbar-brand" href="inicio.php"><img class="img-responsive" src="images/copamex.png" alt="Logo"></a>
                   </div>
                   <div class="collapse navbar-collapse" id="navbar-collapse">
                       <ul class="nav navbar-nav navbar-right">
@@ -142,35 +142,28 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
                           <img class="img-responsive" src="images/logo2.png" alt="">
 
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                          <p> </p>
+                          
                       </div>
                   </div>
                   <div class="col-sm-3">
                       <div class="contact-widget">
-                          <h3>Business Hours</h3>
-                          <p>Our support available to help you 24 hours a day, seven days a week.</p>
-                          <p>Monday - Thursday @ 09.00 - 17.30</p>
-                          <p>Friday & Saturday @ 10.00 - 16.00</p>
-                          <p>Sunday - <span> Closed </span></p>
+                          <h3>Horas de Trabajo</h3>
+                          <p>Soporte disponible para ayudarte 24/7.</p>
+                          <p>Lunes-Jueves @ 09.00 - 17.30</p>
+                          <p>Viernes & Sabado @ 10.00 - 16.00</p>
+                          <p>Domingo - <span> Cerrado </span></p>
                       </div>
                   </div>
                   <div class="col-sm-3">
                       <div class="contact-widget">
-                          <h3>Quick Links</h3>
+                          <h3>Enlaces rapido</h3>
                           <ul>
-                              <li><a href="#">About Us</a></li>
-                              <li><a href="#">Projects</a></li>
-                              <li><a href="#">Services</a></li>
-                              <li><a href="#">Latest News</a></li>
-                              <li><a href="#">Shop</a></li>
-                          </ul>
-                          <ul>
-                              <li><a href="#">Who We Are</a></li>
-                              <li><a href="#">Creer</a></li>
-                              <li><a href="#">Contac Us</a></li>
-                              <li><a href="#">Features</a></li>
-                              <li><a href="#">FAQ</a></li>
+                              <li><a href="inicio.php">Inicio</a></li>
+                              <li><a href="about.php">Acerca</a></li>
+                              <li><a href="contact.php">Contacto</a></li>
+                              <li><a href="register.php">Registrarse</a></li>
+                              <li><a href="login.php">LogIn</a></li>
                           </ul>
                       </div>
                   </div>
@@ -179,9 +172,9 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                           <h3>Our Office</h3>
                           <address>
                               <ul>
-                                  <li><span class="address">Address:</span>1052 – 1054 Christchurch Road, Bournemouth, BH7 6DS</li>
+                                  <li><span class="address">Address:</span>Carretera a Garcia Km 1.3 Parque Stiva Santa Catarina N.L., Santa Catarina, Nuevo León</li>
                                   <li><span>Phone: </span>+210 2234 546 78</li>
-                                  <li><span>Email: </span><a href="#">support@diagram.com</a></li>
+                                  <li><span>Email: </span><a href="#">facpya@gmail.com</a></li>
                               </ul>
                           </address>
                           <ul class="footer-social list-inline">
@@ -200,7 +193,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       <div class="footer-bottom">
           <div class="container">
               <div class="copyright-text text-center">
-                  <p>&copy; Diagram 2017 | Design & Developed By <a href="http://www.gridbootstrap.com/">GridBootstrap</a></p>
+                  <p>&copy; Diagram 2018 </p>
               </div>
           </div>
       </div><!-- footer bottom -->
