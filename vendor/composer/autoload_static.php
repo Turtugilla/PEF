@@ -9,6 +9,7 @@ class ComposerStaticInitb464f616ef5fb739bd53fede7e13bd37
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '3f8bdd3b35094c73a26f0106e3c0f8b2' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/SendGrid.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -24,6 +25,10 @@ class ComposerStaticInitb464f616ef5fb739bd53fede7e13bd37
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
+            'SendGrid\\Stats\\' => 15,
+            'SendGrid\\Mail\\' => 14,
+            'SendGrid\\Contacts\\' => 18,
+            'SendGrid\\' => 9,
         ),
         'P' => 
         array (
@@ -54,6 +59,23 @@ class ComposerStaticInitb464f616ef5fb739bd53fede7e13bd37
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
+        'SendGrid\\Stats\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/stats',
+        ),
+        'SendGrid\\Mail\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/mail',
+        ),
+        'SendGrid\\Contacts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/contacts',
+        ),
+        'SendGrid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/php-http-client/lib',
+            1 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (
