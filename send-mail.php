@@ -49,7 +49,7 @@ $mail->send();
 $email = new \SendGrid\Mail\Mail();
 $email->setFrom("test@example.com", "Example User");
 $email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("app115927986@heroku.com", "Example User");
+$email->addTo("pedro.deleon92@outlook.com", "Example User");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
 	"text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
