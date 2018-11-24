@@ -39,11 +39,11 @@ if(isset($_SESSION['cart'])) {
 		$email->addTo($emailUsuarioLogeado, $nombreUsuarioLogeado);
 		$email->addContent(
 			"text/html", "<strong>Tu orden fue realizada con éxito</strong><br></br>								  													  										  
-										  <p><strong>Fecha de compra</strong>: ".$date."</p>
+										  <p><strong>Fecha de arribo</strong>: ".$date."</p>
 										  <p><strong>Unidades</strong>: ".$quantity."</p>
 										  <p><strong>Costo Total</strong>: ".$cost."</p>
-										  <p><strong>Producto</strong>: ". $product_id ."</p>
-										  <p><strong>Usuario</strong>: ".$idUsuario."</p>												
+										  <p><strong>ID de Producto</strong>: ". $product_id ."</p>
+										  <p><strong>ID de Usuario</strong>: ".$idUsuario."</p>												
 										  <p><hr></p>							
 								  </div>
 								</div>"
