@@ -10,8 +10,16 @@ if(isset($_SESSION['cart'])) {
 
   foreach($_SESSION['cart'] as $product_id => $quantity) {
 
-    $result = pg_query($db_connection, "SELECT * FROM products WHERE id=". $product_id);
 
+    $resultUsuario = pg_query($db_connection,"SELECT * FROM users WHERE id =". $id);
+    $row = pg_fetch_row($resultUsuario);
+    $emailUsuarioLogeado = $_SESSION['email'];
+    $nombreUsuarioLogeado = $_SESSION['fname'];
+
+
+
+
+    $result = pg_query($db_connection, "SELECT * FROM products WHERE id=". $product_id);
     $array = pg_fetch_array($result);
 
     if($result){
@@ -24,6 +32,31 @@ if(isset($_SESSION['cart'])) {
 					VALUES($price, $quantity , $cost,'2017-03-14',$product_id ,$idUsuario)";
 
         $query = pg_query($db_connection, $insert);
+
+		$email = new \SendGrid\Mail\Mail();
+		$email->setFrom("pedro.deleon92@outlook.com", "Pollito Mayor");
+		$email->setSubject($subject);
+		$email->addTo($emailUsuarioLogeado, $nombreUsuarioLogeado);
+		$email->addContent(
+			"text/html", "<strong>Tu orden fue realizada con éxito</strong><br></br>								  													  										  
+										  <p><strong>Fecha de compra</strong>: 2017-03-14</p>
+										  <p><strong>Unidades</strong>: ".$quantity."</p>
+										  <p><strong>Costo Total</strong>: ".$cost."</p>
+										  <p><strong>Producto</strong>: ". $product_id ."</p>
+										  <p><strong>Usuario</strong>: ".$idUsuario."</p>												
+										  <p><hr></p>							
+								  </div>
+								</div>"
+		);
+		$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+		try {
+			$response = $sendgrid->send($email);
+			print $response->statusCode() . "\n";
+			print_r($response->headers());
+			print $response->body() . "\n";
+		} catch (Exception $e) {
+			echo 'Caught exception: '. $e->getMessage() ."\n";
+		}
 
         if($query){
           $newqty = $array['qty'] - $quantity;
