@@ -25,7 +25,7 @@ $mensaje = $_POST["mensaje"];
 $mail= new PHPMailer();
 
 $mail->isSMTP();
-$mail->Port = 587;
+$mail->Port = 465;
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'tls';
