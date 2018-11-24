@@ -2,7 +2,7 @@ function postTOBank(monto,detalle){
 	var miCuentaBancaria = {
 		 "ctaorigen" :  "0000000000000002",
 		 "ctadestino" : "0000000000000003",
-		 "monto" : monto,
+		 "monto" : 500,
 		 "detalle" : detalle
 	};
 
