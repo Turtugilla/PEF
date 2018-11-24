@@ -5,12 +5,12 @@ function postTOBank(monto,detalle){
 		type: 'POST',
 		url: "https://pollitosenfuga.herokuapp.com/orders-update.php",
 		
-		//crossDomain: true,
-		/*headers: {
+		crossDomain: true,
+		headers: {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Headers': '*',
 			'Access-Control-Allow-Methods': '*'
-		},*/
+		},
 		success: function(response){
 			 var miCuentaBancaria = {
 				 'ctaorigen' :  '0000000000000002',
@@ -23,6 +23,11 @@ function postTOBank(monto,detalle){
 			    type: 'POST',
 			    url:   'https://spbank.herokuapp.com/api/payment',
 			    data: miCuentaBancaria,
+			    headers: {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Headers': '*',
+			'Access-Control-Allow-Methods': '*'
+		             },		
 			    success: function(response){
 			      console.log(response);
 			   
