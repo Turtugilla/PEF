@@ -1,6 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-$valorPasteles=json_decode($_GET["pasteles"],true);
+$valorPasteles=json_decode($_GET["huevos"],true);
 
 function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["DATABASE_URL"]));
@@ -10,17 +10,34 @@ function pg_connection_string_from_database_url() {
 $pg_conn = pg_connect($conn.pg_connection_string_from_database_url());
 
 
-foreach( $valorPasteles as $pastel ) {
+foreach( $valorHuevos as $huevo ) {
 	
-		$result = pg_query($pg_conn, "SELECT cantidad FROM pastel WHERE codigo_pastel = ".$pastel["codigo_pastel"]);
+		$result = pg_query($pg_conn, "SELECT  qty  FROM products WHERE product_name = ".$huevo["nombre_producto"]);
 		$c = pg_fetch_row($result);
-		$act = $c[0] + $pastel["cantidad"];
-		$upt = "UPDATE pastel SET cantidad=".$act." WHERE codigo_pastel=".$pastel["codigo_pastel"];
+		$array = array();
+		if($c[0] >= $huevo["cantidad"]){
+              array_push($array, 'success');
+			  $upt = "UPDATE products SET qty=".($c[0]- $huevo["cantidad"])." WHERE product_name=".$huevo["nombre_producto"];
+		}else{
+			  array_push($array, 'error');
+		}
 
-         $result2 = pg_query($pg_conn, "UPDATE pastel SET cantidad=".$act." WHERE codigo_pastel=".$pastel["codigo_pastel"]);
-         echo $upt;
+		echo json_encode($array);
+
          }
 
 
-echo "Pollos en fuga";
+
 ?>
+
+
+
+
+
+
+
+
+
+//$act =  + $huevo["cantidad"];
+//
+//$result2 = pg_query($pg_conn, "UPDATE pastel SET cantidad=".$act." WHERE codigo_pastel=".$pastel["codigo_pastel"]);
