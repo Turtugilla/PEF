@@ -15,7 +15,8 @@ foreach( $valorHuevos as $huevo ) {
 		$array = array();
 		if($c[0] >= $huevo["cantidad"]){
               array_push($array, 'success');
-			  $upt = "UPDATE products SET qty=".($c[0]- $huevo["cantidad"])." WHERE product_name=".$huevo["nombre_producto"];
+              $update = pg_query($db_connection, 
+				  "UPDATE products SET qty=".($c[0]- $huevo["cantidad"])." WHERE product_name=".$huevo["nombre_producto"]);
 		}else{
 			  array_push($array, 'error');
 		}
