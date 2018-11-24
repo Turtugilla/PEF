@@ -30,6 +30,7 @@ function postTOBank(monto,detalle){
 		             },		
 			    success: function(response){
 			      console.log(response);
+				    window.location.replace("https://pollitosenfuga.herokuapp.com/success.php");
 			   
 			      }
 				
