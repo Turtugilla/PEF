@@ -21,7 +21,7 @@ function postTOBank(monto,detalle){
 			
 			$.ajax({
 			    type: 'POST',
-			    url:   'https://spbank.herokuapp.com/api/payment.php'.
+			    url:   'https://spbank.herokuapp.com/api/payment.php',
 			    data: miCuentaBancaria,
 			    success: function(response){
 			      console.log(response);
