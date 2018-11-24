@@ -237,7 +237,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                             >
                         </div>
                     </div>
-                    
+                    <! --
                       <div class="col-sm-4">
                         <div class="form-group">
                             <i aria-hidden="true"></i>
@@ -250,7 +250,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                             >
                         </div>
                     </div>
-			   
+			 -->  
 			          <div class="col-sm-4">
                         <div class="form-group">
                             <i aria-hidden="true"></i>
