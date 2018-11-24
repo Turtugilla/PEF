@@ -139,30 +139,9 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   </a>
 </div>
 	<!-- Termina slideshow -->
-	  
-  <div class="home-section image-bg">
-      <div class="overlay"></div>
-      <div class="home-content">
-          <div class="container">
-              <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
-                  <div class="carousel-inner" role="listbox">
-                      <div class="item active">
-
-                      </div>
-                      <div class="item">
-
-                      </div>
-                      <div class="item">
-
-                      </div>
-                  </div>
-                  <a class="carousel-left" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                  <a class="carousel-right" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
-              </div>
+	
 
               <div class="services">
-
-
 
 			  </div>
               </div><!-- services -->
