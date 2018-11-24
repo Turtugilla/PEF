@@ -29,7 +29,7 @@ if(isset($_SESSION['cart'])) {
 
         $price = $array['price'];
         $insert ="INSERT INTO orders  (price, units, total, date, idproduct, idusuario)
-					VALUES($price, $quantity , $cost,$date,$product_id ,$idUsuario)";
+					VALUES($price, $quantity , $cost ,$date ,$product_id ,$idUsuario)";
 
         $query = pg_query($db_connection, $insert);
 
