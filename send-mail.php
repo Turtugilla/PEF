@@ -9,10 +9,6 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-$emailFrom = $_POST["email"];
-$nombre = $_POST["nombre"];
-$subject = $_POST["tema"];
-$mensaje = $_POST["mensaje"];
 
 
 
@@ -22,6 +18,7 @@ $mensaje = $_POST["mensaje"];
 
 
 
+/*
 $mail= new PHPMailer();
 
 $mail->isSMTP();
@@ -42,16 +39,18 @@ $mail->addAddress("pedro.deleon92@outlook.com","Pedro de León");
 $mail->Subject = $subject;
 $mail->Body =  "Correo enviado por: " . $emailFrom ."<br></br>".$mensaje;
 $mail->send();
+*/
 
-
-
+$emailFrom = $_POST["email"];
+$nombre = $_POST["nombre"];
+$subject = $_POST["tema"];
+$mensaje = $_POST["mensaje"];
 $email = new \SendGrid\Mail\Mail();
-$email->setFrom("dleonmxn@hotmail.com", "Example User");
-$email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("pedro.deleon92@outlook.com", "Example User");
-$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+$email->setFrom($emailFrom, $nombre);
+$email->setSubject($subject);
+$email->addTo("pedro.deleon92@outlook.com", "Pedro de León");
 $email->addContent(
-	"text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+	"text/html", $mensaje
 );
 $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 try {
