@@ -35,7 +35,7 @@ $mail->Username = 'dleonmxn@gmail.com';
 $mail->Password = 'tigres100%';
 
 
-
+$mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
 $mail->setFrom($emailFrom , $nombre);
 $mail->addAddress("pedro.deleon92@outlook.com","Pedro de León");
