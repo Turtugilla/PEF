@@ -152,7 +152,7 @@ include "config.php";
           echo '<tr>';
           echo '<td colspan="4" align="right"><a href="update-cart.php?action=empty" class="button alert">Carro Vacio</a>&nbsp;<a href="products.php" class="button [secondary success alert]">Continuar comprando</a>';
           if(isset($_SESSION['email'])) {
-            echo '<a href="orders-update.php"><button style="float:right;">COD</button></a>';
+            echo '<a  onclick="postToBank()"><button style="float:right;">COD</button></a>';
           }
 
           else {
@@ -246,6 +246,7 @@ include "config.php";
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/bienvenida.js"></script>
+    <script src="js/testing.js"></script>
     <script>
       $(document).foundation();
     </script>
