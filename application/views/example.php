@@ -15,7 +15,7 @@
 
 				}
 				else{
-				   echo "Entrada Prohibida";
+					header("Location: https://pollitosenfuga.herokuapp.com/inicio.php");
 				}
 	?>
 
