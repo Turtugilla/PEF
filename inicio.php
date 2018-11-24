@@ -87,17 +87,24 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                           <li><a href="cart.php">Carrito</a></li>
                           <li><a href="orders.php">Ordenes</a></li>
                           <li><a href="contact.php">Contacto</a></li>
-                          <?php
-
-                          if(isset($_SESSION['email'])){
-                              echo '<li><a href="account.php">Mi cuenta</a></li>';
-                              echo '<li><a href="logout.php">Salir</a></li>';
-                          }
-                          else{
-                              echo '<li><a href="login.php">Log In</a></li>';
-                              echo '<li><a href="register.php">Registrarse</a></li>';
-                          }
-                          ?>
+						  <li class="dropdown">
+							  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+								  Cuenta
+								  <i class="fa fa-caret-down" aria-hidden="true"></i>
+							  </a>
+							  <ul class="dropdown-menu">
+								 <?php
+								  if(isset($_SESSION['email'])){
+									  echo '<li><a href="account.php">Mi cuenta</a></li>';
+									  echo '<li><a href="logout.php">Salir</a></li>';
+								     }
+								  else{
+									  echo '<li><a href="login.php">Iniciar Sesión</a></li>';
+									  echo '<li><a href="register.php">Registrarse</a></li>';
+								 	 }
+								  ?>
+							  </ul>
+						  </li>
                       </ul>
                   </div>
               </div><!-- container -->
