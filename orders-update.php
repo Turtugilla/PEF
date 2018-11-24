@@ -10,8 +10,8 @@ if(isset($_SESSION['cart'])) {
 
   foreach($_SESSION['cart'] as $product_id => $quantity) {
 
-
-    $resultUsuario = pg_query($db_connection,"SELECT * FROM users WHERE id = $id");
+  	$idUsuario = $_SESSION["id"];
+    $resultUsuario = pg_query($db_connection,"SELECT * FROM users WHERE id =".$idUsuario);
     $row = pg_fetch_row($resultUsuario);
     $emailUsuarioLogeado = $_SESSION['email'];
     $nombreUsuarioLogeado = $_SESSION['fname'];
@@ -26,7 +26,7 @@ if(isset($_SESSION['cart'])) {
 
         $cost = $array['price'] * $quantity;
         $date = date('Y-m-d H:i:s');
-        $idUsuario = $_SESSION["id"];
+
         $price = $array['price'];
         $insert ="INSERT INTO orders  (price, units, total, date, idproduct, idusuario)
 					VALUES($price, $quantity , $cost,'2017-03-14',$product_id ,$idUsuario)";
