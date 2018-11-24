@@ -21,7 +21,7 @@
 
 		<?php
 
-		         $email = $_SESSION["emial"];
+		         $email = $_SESSION["email"];
 		         echo $email;
 	         			/*if(isset($_SESSION['email'])){
 
