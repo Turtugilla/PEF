@@ -21,9 +21,9 @@ foreach( $valorHuevos as $huevo ) {
 			  array_push($array, 'error');
 		}
 
-		echo json_encode($array);
-
          }
+
+  echo json_encode($array);
 
 
 
