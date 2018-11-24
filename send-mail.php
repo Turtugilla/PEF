@@ -1,11 +1,5 @@
 <?php
-
-
-
-//mail($to,$subject,$mensaje,$headers);
-
 require 'vendor/autoload.php';
-
 
 $emailFrom = $_POST["email"];
 $nombre = $_POST["nombre"];

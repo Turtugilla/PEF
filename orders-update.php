@@ -99,6 +99,6 @@ if(isset($_SESSION['cart'])) {
 }
 
 unset($_SESSION['cart']);
-header("location:success.php");
+//header("location:success.php");
 
 ?>
