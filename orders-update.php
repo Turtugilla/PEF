@@ -11,7 +11,7 @@ if(isset($_SESSION['cart'])) {
   foreach($_SESSION['cart'] as $product_id => $quantity) {
 
 
-    $resultUsuario = pg_query($db_connection,"SELECT * FROM users WHERE id =". $id);
+    $resultUsuario = pg_query($db_connection,"SELECT * FROM users WHERE id = $id");
     $row = pg_fetch_row($resultUsuario);
     $emailUsuarioLogeado = $_SESSION['email'];
     $nombreUsuarioLogeado = $_SESSION['fname'];
