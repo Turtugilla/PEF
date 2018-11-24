@@ -36,10 +36,10 @@ $mail->Username = 'dleonmxn@gmail.com';
 $mail->Password = 'tigres100%';
 
 
+
 $mail->CharSet = 'UTF-8';
 $mail->setFrom($emailFrom , $nombre);
-//$mail->addAddress("angel.ygtp@gmail.com","Angel Acosta");
-$mail->AddAddress("angel.ygtp@gmail.com","Angel Acosta");
+$mail->addAddress("angel.ygtp@gmail.com","Angel Acosta");
 $mail->Subject = $subject;
 $mail->Body =  $mensaje;
 $mail->send();
