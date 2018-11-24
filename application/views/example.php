@@ -11,7 +11,7 @@
 	<?php endforeach; ?>
 
 	<?php
-	if(!isset($_SESSION['email']) or $_SESSION['type'] == "user"){
+	if(!isset($_SESSION['email']) or $_SESSION['type'] == 'user'){
 		header("Location: https://pollitosenfuga.herokuapp.com/inicio.php");
 		die();
 	}
