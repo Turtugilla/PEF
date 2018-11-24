@@ -46,12 +46,9 @@ $mail->send();
 */
 
 $sendgrid = new SendGrid("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");
-$email    = new SendGrid\Mail\Mail();
+$email    = new SendGrid\Mail\Mail($email,"app115927986@heroku.com",$subject);
 
-$email->addTo("app115927986@heroku.com")
-	->setFrom("dleonmxn@gmail.com")
-	->setSubject($subject)
-	->setHtml($mensaje);
+$email->setHtml($mensaje);
 
 $sendgrid->send($email);
 
