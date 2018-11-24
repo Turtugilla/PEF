@@ -11,7 +11,7 @@
 	<?php endforeach; ?>
 
 	<?php
-	if(isset($_SESSION['email'])){
+	if(!isset($_SESSION['email'])){
 		header("Location: https://pollitosenfuga.herokuapp.com/inicio.php");
 		die();
 	}
