@@ -32,42 +32,39 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 <body>
 
 <header id="header">
-    <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="info-box">
-                        <i class="fa fa-envelope"></i>
-                        <div class="info-text">
-                            <h5>Correo electrónico:</h5>
-                            <a href="mailto:cofee@diagram.com">cofee@diagram.com</a>
-                        </div>
-                    </div>
-                    <div class="info-box">
-                        <i class="fa fa-phone"></i>
-                        <div class="info-text">
-                            <h5>Teléfono:</h5>
-                            <span>+121 2134345678</span>
-                        </div>
-                    </div>
-                    <div class="info-box">
-                        <i class="fa fa-clock-o"></i>
-                        <div class="info-text">
-                            <h5>Horario Atención:</h5>
-                            <a href="#">Lun-Vie: 9:00 am - 6:00 pm</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="top-bar">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-8">
+                      <div class="info-box">
+                          <i class="fa fa-envelope"></i>
+                          <div class="info-text">
+                              <h5>Correo electrónico:</h5>
+                              <a href="mailto:facpya@gmail.com">facpya@gmail.com</a>
+                          </div>
+                      </div>
+                      <div class="info-box">
+                          <i class="fa fa-phone"></i>
+                          <div class="info-text">
+                              <h5>Teléfono:</h5>
+                              <span>+21 34345678</span>
+                          </div>
+                      </div>
+                      <div class="info-box">
+                          <i class="fa fa-clock-o"></i>
+                          <div class="info-text">
+                              <h5>Horario Atención:</h5>
+                              <a href="#">Lun-Vie: 9:00 am - 6:00 pm</a>
+                          </div>
+                      </div>
+                  </div>
 
-                <div class="col-sm-4">
+                  <div class="col-sm-4">
 
-                </div>
-            </div>
-        </div><!-- container -->
-    </div><!-- top-bar -->
-
-
-
+                  </div>
+              </div>
+          </div><!-- container -->
+      </div><!-- top-bar -->
     <div class="main-menu">
         <nav class="navbar navbar-default">
             <div class="container">
