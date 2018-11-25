@@ -1,25 +1,41 @@
 function postTOBank(monto,detalle){
-	var miCuentaBancaria = {
-		 "ctaorigen" :  "0000000000000002",
-		 "ctadestino" : "0000000000000003",
-		 "monto" : monto,
-		 "detalle" : detalle
-	};
+
 
     $.ajax({
 		type: 'POST',
-		url: "https://spbank.herokuapp.com/api/payment",
-		data: miCuentaBancaria,
-		contentType: 'json',
-		//crossDomain: true,
-		/*headers: {
+		url: "https://pollitosenfuga.herokuapp.com/orders-update.php",
+		
+		crossDomain: true,
+		headers: {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Headers': '*',
 			'Access-Control-Allow-Methods': '*'
-		},*/
+		},
 		success: function(response){
-			console.log("testing");
-			console.log(response);
+			 var miCuentaBancaria = {
+				 'ctaorigen' :  '0000000000000002',
+				 'ctadestino' : '0000000000000003',
+				 'monto' : 500,
+				 'detalle' : 'testing'
+			};
+			
+			$.ajax({
+			    type: 'POST',
+			    url:   'https://spbank.herokuapp.com/api/payment',
+			    data: miCuentaBancaria,
+			    headers: {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Headers': '*',
+			'Access-Control-Allow-Methods': '*'
+		             },		
+			    success: function(response){
+			      console.log(response);
+				    window.location.replace("https://pollitosenfuga.herokuapp.com/success.php");
+			   
+			      }
+				
+			
+			});
 		}
 	});
 }
