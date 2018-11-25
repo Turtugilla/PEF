@@ -48,6 +48,8 @@ if(isset($_SESSION['cart'])) {
 								  </div>
 								</div>"
 		);
+
+
 		$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 		try {
 			$response = $sendgrid->send($email);
