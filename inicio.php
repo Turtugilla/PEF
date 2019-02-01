@@ -114,7 +114,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 	  
 <!-- Slideshow -->
 <div> 
-    <h1 style="text-align:center">Bienvenidos</h1>
+    <h1 style="text-align:center">Hola  a todos</h1>
 <div class="slider-holder">
         <span id="slider-image-1"></span>
         <span id="slider-image-2"></span>
